@@ -362,7 +362,12 @@ if (EMBED) new ResizeObserver(avisarAltura).observe(document.body);
 // ── Arranque ─────────────────────────────────────────────────────
 addEventListener('popstate', () => location.reload());
 const t = URLP.get('t');
-if (t) {
+if (URLP.has('borrador')) {
+  // Vista previa desde el editor: el borrador está guardado en este navegador
+  const d = guardado('ae-borrador', null);
+  if (d) verTema(d, { local: 'borrador del editor' });
+  else app.innerHTML = `${barra()}<main class="mcr-contenedor visor-main"><p class="mcr-vacio">No hay ningún borrador abierto en el editor de este navegador.</p></main>${pie()}`;
+} else if (t) {
   cargarTema(t).then(d => verTema(d)).catch(() => {
     app.innerHTML = `${barra()}<main class="mcr-contenedor visor-main"><p class="mcr-vacio">No se ha encontrado el tema «${esc(t)}».</p><p><a href="./">Volver a los temas</a></p></main>${pie()}`;
   });

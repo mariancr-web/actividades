@@ -50,3 +50,28 @@ body.embed .tarjeta-act { margin-bottom: 12px; }
   .tarjeta-act .parejas li > :nth-child(n+3) { grid-column: 1; }
   .tarjeta-act .pareja-flecha { display: none; }
 }
+
+/* ── Editor (editor.html) ─────────────────────────────────────── */
+.hero-acc { display: flex; flex-wrap: wrap; gap: 8px; }
+.ae-arriba { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; margin-bottom: 4px; }
+.ae-apartado { margin-bottom: 8px; }
+.ae-lista { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 8px; }
+.ae-fila { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 12px; background: var(--papel); border: 1px solid var(--linea); border-left: 4px solid var(--acento); border-radius: 8px; }
+.ae-icono { color: var(--texto); display: flex; }
+.ae-texto { display: grid; gap: 2px; min-width: 0; }
+.ae-texto .tipo { margin: 0; }
+.ae-enun { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ae-acc { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+.ae-vacio { margin: 0 0 8px; }
+.ae-anadir { margin-bottom: 8px; }
+.dlg-tema { display: grid; gap: .8rem; }
+.dlg-tema label:not(.check) { display: grid; gap: .3rem; }
+.dlg-tema h2 { margin: 0; }
+.rejilla-tema { display: grid; grid-template-columns: 2fr 1fr; gap: .8rem; }
+.ae-pasos { margin: 0; padding-left: 1.3rem; display: grid; gap: .9rem; }
+.ae-pasos p { margin: .3rem 0 0; }
+@media (max-width: 640px) {
+  .ae-fila { grid-template-columns: auto minmax(0, 1fr); }
+  .ae-acc { grid-column: 1 / -1; justify-content: flex-start; }
+  .ae-enun { white-space: normal; }
+}

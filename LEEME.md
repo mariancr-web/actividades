@@ -8,6 +8,8 @@ Usa **el mismo archivo** que se importa en Clase en directo (Banco de preguntas 
 | Archivo | Función |
 |---|---|
 | `index.html` + `visor.js` | El visor: portada con los temas y vista de cada tema |
+| `editor.html` + `editor-app.js` | El editor: crear y cambiar las actividades de cada tema (dirección `/editor.html`, no enlazada desde la portada) |
+| `editor.js` | Copia del editor de Clase en directo (formularios por tipo y prueba como alumno). Si se cambia allí, se copia aquí |
 | `lib.js` | Copia de `lib.js` de Clase en directo (corrección y dibujo de cada tipo). Si se cambia allí, se copia aquí |
 | `actividades.css` | Copia de `estilos.css` de Clase en directo, para que las actividades se vean igual |
 | `visor.css` | Estilos propios del visor |
@@ -17,11 +19,18 @@ Usa **el mismo archivo** que se importa en Clase en directo (Banco de preguntas 
 | `vercel.json` | Permite que el libro web lea los temas desde otra dirección |
 
 ## Publicar (igual que Clase en directo)
-1. Crea en GitHub un repositorio nuevo, por ejemplo `mariancr-actividades`, y sube todos los archivos de esta carpeta.
+1. Crea en GitHub un repositorio nuevo (es `mariancr-web/actividades`) y sube todos los archivos de esta carpeta.
 2. En Vercel: *Add New → Project*, elige el repositorio, preset **Other**, sin cambiar nada más, y *Deploy*.
 3. Quedará en una dirección como `https://mariancr-actividades.vercel.app`.
 
-## Añadir un tema
+## Crear o cambiar actividades (editor)
+1. Entra en `https://mariancr-actividades.vercel.app/editor.html` (guárdala en favoritos).
+2. Pulsa **Editar** en un tema publicado, **Nuevo tema**, o **Abrir un archivo** de tu ordenador.
+3. Añade, edita, duplica, ordena o borra actividades. En «Más opciones» de cada una está el **apartado de los apuntes**. Los cambios se guardan solos en el navegador como borrador.
+4. **Ver como alumno** abre el borrador en el visor para probarlo.
+5. **Descargar para publicar** te da el archivo del tema (y `indice.json` si hace falta). Súbelos a la carpeta `temas` del repositorio en GitHub (Add file → Upload files → Commit changes). Vercel lo publica en un minuto.
+
+## Añadir un tema a mano
 1. Copia su archivo `…-actividades.json` en `temas/`.
 2. Añade una línea a `temas/indice.json` (curso, número, título, número de actividades).
 3. Sube los cambios a GitHub; Vercel lo publica solo.
