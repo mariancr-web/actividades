@@ -1,6 +1,7 @@
-// Moléculas en 3D: editor de OpenChemLib (dibujar) + generador de conformaciones de OpenChemLib (3D)
-// + 3Dmol.js (ver, girar, medir). Todo en el navegador, sin servidor.
+// Moléculas en 3D: se escribe la fórmula semidesarrollada o se dibuja con JSME; OpenChemLib calcula
+// la geometría 3D y 3Dmol.js la muestra (girar, medir). Todo en el navegador, sin servidor.
 import * as OCL from 'https://cdn.jsdelivr.net/npm/openchemlib@9.25.0/dist/openchemlib.js';
+import { semidesarrollada } from './semidesarrollada.js';
 
 const URLP = new URLSearchParams(location.search);
 if (URLP.has('embed')) {
@@ -16,82 +17,133 @@ const HIB = {
 };
 const CPK = { H: '#FFFFFF', C: '#475569', N: '#2563EB', O: '#E11D48', F: '#10B981', Cl: '#10B981', Br: '#9A3412', I: '#7C3AED', S: '#EAB308', P: '#F97316' };
 
+// [nombre, fórmula que se escribe en la caja (o SMILES si empieza por «=»)]
 const EJEMPLOS = [
-  ['Metano', 'C'], ['Etano', 'CC'], ['Eteno', 'C=C'], ['Etino', 'C#C'],
-  ['Propeno', 'C=CC'], ['Propino', 'C#CC'], ['Propadieno', 'C=C=C'], ['Buta-1,3-dieno', 'C=CC=C'],
-  ['Ciclohexano', 'C1CCCCC1'], ['Benceno', 'c1ccccc1'], ['Etanol', 'CCO'], ['Etanal', 'CC=O'],
-  ['Propanona', 'CC(C)=O'], ['Ácido etanoico', 'CC(=O)O'], ['Etanonitrilo', 'CC#N'], ['Ácido 2-aminopropanoico', 'CC(N)C(=O)O']
+  ['Metano', 'CH4'], ['Etano', 'CH3–CH3'], ['Eteno', 'CH2=CH2'], ['Etino', 'CH≡CH'],
+  ['Propeno', 'CH2=CH–CH3'], ['Propino', 'CH≡C–CH3'], ['Propadieno', 'CH2=C=CH2'], ['Buta-1,3-dieno', 'CH2=CH–CH=CH2'],
+  ['Ciclohexano', 'C6H12'], ['Benceno', 'C6H6'], ['Etanol', 'CH3–CH2–OH'], ['Etanal', 'CH3–CHO'],
+  ['Propanona', 'CH3–CO–CH3'], ['Ácido etanoico', 'CH3–COOH'], ['Etanonitrilo', 'CH3–CN'], ['Ácido 2-aminopropanoico', 'CH3–CH(NH2)–COOH']
 ];
+const smilesDe = f => f === 'CH4' ? { smiles: 'C' } : semidesarrollada(f);
 
 const $ = s => document.querySelector(s);
 const visorEl = $('#visor');
 const v = $3Dmol.createViewer(visorEl, { backgroundColor: 'white', antialias: true });
-const estado = { estilo: 'bolas', mol: null, sel: [], firma: '' };
+const estado = { estilo: 'bolas', mol: null, sel: [], firma: '', atomos: [] };
 
-// ── Editor ───────────────────────────────────────────────────────
-let editor = null;
-async function arrancar() {
-  try { await OCL.Resources.registerFromUrl('https://cdn.jsdelivr.net/npm/openchemlib@9.25.0/dist/resources.json'); }
-  catch { /* el generador funciona peor, pero funciona */ }
-  const caja = $('#editor');
-  caja.innerHTML = '';
-  editor = new OCL.CanvasEditor(caja, { initialMode: 'molecule' });
-  let espera = null;
-  editor.setOnChangeListener(() => { clearTimeout(espera); espera = setTimeout(actualizar3D, 350); });
-  const inicial = EJEMPLOS.find(e => e[0].toLowerCase() === (URLP.get('m') || '').toLowerCase()) || EJEMPLOS[2];
-  cargarEjemplo(inicial[1], inicial[0]);
+// ── Entrada: fórmula escrita ─────────────────────────────────────
+function aviso(texto, tipo = 'aviso') {
+  const p = $('#aviso-formula');
+  p.textContent = texto || '';
+  p.className = texto ? tipo : '';
 }
+function verFormula(formula, nombre = '') {
+  $('#formula').value = formula;
+  const r = smilesDe(formula);
+  const limpiar = () => { marcarEjemplo(''); estado.firma = ''; mostrar('', { alDibujo: false }); resumen(); };
+  if (r.error) { aviso(r.error); limpiar(); return; }
+  if (r.h != null) {
+    let real = null;
+    try { const f = OCL.Molecule.fromSmiles(r.smiles).getMolecularFormula().formula.match(/H(\d*)/); real = f ? (f[1] ? Number(f[1]) : 1) : 0; } catch { /* lo dirá mostrar() */ }
+    if (real != null && real !== r.h) {
+      aviso(`Los hidrógenos no cuadran: has escrito ${r.h} H, pero con esos enlaces la molécula tendría ${real}. Recuerda que cada carbono forma 4 enlaces.`);
+      limpiar(); return;
+    }
+  }
+  aviso('');
+  marcarEjemplo(nombre);
+  mostrar(r.smiles, { alDibujo: true });
+}
+$('#form-formula').onsubmit = e => {
+  e.preventDefault();
+  const f = $('#formula').value.trim();
+  const ej = EJEMPLOS.find(x => x[1].replace(/–/g, '-') === f.replace(/[–—−]/g, '-'));
+  verFormula(f, ej ? ej[0] : '');
+};
 
 function pintarEjemplos() {
-  $('#ejemplos').innerHTML = EJEMPLOS.map(([n, s]) => `<button type="button" class="geo-chip" data-s="${s}" aria-pressed="false">${n}</button>`).join('');
+  $('#ejemplos').innerHTML = EJEMPLOS.map(([n]) => `<button type="button" class="geo-chip" aria-pressed="false">${n}</button>`).join('');
   $('#ejemplos').onclick = e => {
-    const b = e.target.closest('[data-s]'); if (!b) return;
-    cargarEjemplo(b.dataset.s, b.textContent);
+    const b = e.target.closest('.geo-chip'); if (!b) return;
+    const ej = EJEMPLOS.find(x => x[0] === b.textContent);
+    verFormula(ej[1], ej[0]);
   };
 }
 function marcarEjemplo(nombre) {
-  document.querySelectorAll('#ejemplos [data-s]').forEach(b => b.setAttribute('aria-pressed', String(b.textContent === nombre)));
+  document.querySelectorAll('#ejemplos .geo-chip').forEach(b => b.setAttribute('aria-pressed', String(b.textContent === nombre)));
 }
-function cargarEjemplo(smiles, nombre) {
-  const m = OCL.Molecule.fromSmiles(smiles);
-  // Tamaño cómodo en el lienzo: enlaces de unos 45 px, centrado
-  const caja = $('#editor').getBoundingClientRect();
-  const media = m.getAverageBondLength(true) || 1;
-  m.scaleCoords(90 / media);
-  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-  for (let i = 0; i < m.getAllAtoms(); i++) { x0 = Math.min(x0, m.getAtomX(i)); x1 = Math.max(x1, m.getAtomX(i)); y0 = Math.min(y0, m.getAtomY(i)); y1 = Math.max(y1, m.getAtomY(i)); }
-  m.translateCoords(caja.width / 2 + 20 - (x0 + x1) / 2, caja.height / 2 - (y0 + y1) / 2);
-  editor.setMolecule(m);
-  marcarEjemplo(nombre);
-  actualizar3D();
+
+// ── Entrada: dibujo (JSME) ───────────────────────────────────────
+let jsme = null, cargandoDibujo = false;
+function arrancarDibujo() {
+  window.jsmeOnLoad = () => {
+    const caja = $('#editor');
+    caja.innerHTML = '<div id="jsme" style="width:100%;height:100%"></div>';
+    jsme = new JSApplet.JSME('jsme', '100%', '100%', { options: 'newlook,noreaction,noquery,nosearchinchiKey,nopaste,nostar,zoom,atommovebutton' });
+    jsme.setCallBack('AfterStructureModified', () => {
+      if (cargandoDibujo) return;
+      clearTimeout(arrancarDibujo.t);
+      arrancarDibujo.t = setTimeout(() => {
+        const sm = jsme.smiles();
+        marcarEjemplo(''); $('#formula').value = ''; aviso('');
+        mostrar(sm, { alDibujo: false });
+      }, 300);
+    });
+    if (estado.smiles) pasarAlDibujo(estado.smiles);
+  };
+  const s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/jsme-editor@2024.4.29/jsme.nocache.js';
+  s.onerror = () => { $('#editor').innerHTML = '<p class="aviso">No se ha podido cargar el editor de dibujo. Puedes seguir escribiendo la fórmula.</p>'; };
+  document.head.append(s);
+}
+function pasarAlDibujo(smiles) {
+  if (!jsme) return;
+  cargandoDibujo = true;
+  try { jsme.readGenericMolecularInput(smiles); } catch { /* nada */ }
+  setTimeout(() => { cargandoDibujo = false; }, 400);
 }
 
 // ── 3D ───────────────────────────────────────────────────────────
-function actualizar3D() {
-  const dibujo = editor.getMolecule();
-  const firma = dibujo.getIDCode();
-  if (firma === estado.firma) return;
-  estado.firma = firma;
-  // Si se ha dibujado a mano, se quita la marca del ejemplo
-  const ej = document.querySelector('#ejemplos [aria-pressed="true"]');
-  if (ej && OCL.Molecule.fromSmiles(ej.dataset.s).getIDCode() !== firma) marcarEjemplo('');
+function mostrar(smiles, { alDibujo }) {
+  estado.smiles = smiles;
+  if (alDibujo) pasarAlDibujo(smiles);
   estado.sel = [];
   v.removeAllModels(); v.removeAllLabels(); v.removeAllShapes();
-  if (!dibujo.getAllAtoms()) { estado.mol = null; resumen(); medida(); v.render(); return; }
-  const copia = dibujo.getCompactCopy();
+  estado.mol = null;
+  if (!smiles) { resumen(); medida(); pintarLeyenda(); v.render(); return; }
+  let base;
+  try { base = OCL.Molecule.fromSmiles(smiles); } catch { base = null; }
+  if (!base || !base.getAllAtoms()) { resumen('No se ha podido leer esta molécula.'); medida(); v.render(); return; }
+  // Trozos sueltos: se avisa y se enseña el mayor
+  const trozos = base.getFragments();
+  let nota = '';
+  if (trozos.length > 1) {
+    base = trozos.sort((a, b) => b.getAllAtoms() - a.getAllAtoms())[0];
+    nota = `Tu dibujo tiene ${trozos.length} trozos sin unir. Se muestra solo el más grande: une todos los átomos en una sola molécula.`;
+  }
+  try { base.validate(); } catch {
+    resumen('Algún átomo tiene más enlaces de los que puede formar (el carbono, como máximo 4). Revisa la fórmula o el dibujo.');
+    medida(); v.render(); return;
+  }
   let mol = null;
-  try { mol = new OCL.ConformerGenerator(7).getOneConformerAsMolecule(copia); } catch { mol = null; }
-  if (!mol) { estado.mol = null; resumen('No se ha podido construir esta molécula en 3D. Revisa que cada átomo tenga los enlaces que le corresponden.'); medida(); v.render(); return; }
+  try { mol = new OCL.ConformerGenerator(7).getOneConformerAsMolecule(base); } catch { mol = null; }
+  if (!mol) { resumen('No se ha podido construir esta molécula en 3D. Revisa que cada átomo tenga los enlaces que le corresponden.'); medida(); v.render(); return; }
   mol.ensureHelperArrays(OCL.Molecule.cHelperNeighbours);
   orientar(mol);
   estado.mol = mol;
   const modelo = v.addModel(mol.toMolfile(), 'sdf');
   estado.atomos = modelo.selectedAtoms({});
   v.setClickable({}, true, atomo => elegir(atomo.index));
+  v.setHoverable({}, true, atomo => {
+    if (estado.hover) v.removeLabel(estado.hover);
+    estado.hover = v.addLabel(nombreAtomo(atomo.index), { position: atomo, backgroundColor: '#1E293B', fontColor: '#FFFFFF', fontSize: 12, borderRadius: 4, padding: 3, inFront: true, alignment: 'bottomLeft' });
+    v.render();
+  }, () => { if (estado.hover) { v.removeLabel(estado.hover); estado.hover = null; v.render(); } });
   pintarModelo();
   v.zoomTo(); v.zoom(1.1);
   v.render();
   resumen(); medida();
+  if (nota) aviso(nota);
 }
 
 // Gira la molécula para que se vea «de frente»: el eje en el que menos se extiende queda hacia quien mira
@@ -140,7 +192,7 @@ function pintarModelo() {
   // Átomos elegidos para medir
   for (const i of estado.sel) v.setStyle({ index: i }, estado.estilo === 'relleno' ? { sphere: { scale: 1.05, color: '#E11D48' } }
     : { stick: { radius: estado.estilo === 'varillas' ? 0.14 : 0.12, color: colorAtomo(i) }, sphere: { scale: 0.36, color: '#E11D48' } });
-  v.removeAllLabels();
+  v.removeAllLabels(); estado.hover = null;
   if ($('#c-etq').checked) {
     for (let i = 0; i < n; i++) if (esCarbono(i)) {
       const h = HIB[Math.min(estado.mol.getAtomPi(i), 2)];
@@ -224,5 +276,9 @@ $('#borrar-medida').onclick = () => { estado.sel = []; v.removeAllShapes(); pint
 addEventListener('resize', () => { v.resize(); v.render(); });
 
 pintarEjemplos();
-arrancar().catch(() => { $('#editor').innerHTML = '<p class="aviso">No se ha podido cargar el editor. Comprueba la conexión a internet y recarga la página.</p>'; });
-window.mcrGeo = { elegir, cargarEjemplo };
+OCL.Resources.registerFromUrl('https://cdn.jsdelivr.net/npm/openchemlib@9.25.0/dist/resources.json').catch(() => {}).finally(() => {
+  const ej = EJEMPLOS.find(e => e[0].toLowerCase() === (URLP.get('m') || '').toLowerCase()) || EJEMPLOS[2];
+  verFormula(ej[1], ej[0]);
+  arrancarDibujo();
+});
+window.mcrGeo = { elegir, verFormula };

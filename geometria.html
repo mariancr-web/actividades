@@ -21,17 +21,26 @@
 <section class="mcr-trama-banda" data-sin-embed><div class="mcr-contenedor mcr-hero">
   <p class="hero-sup">2.º Bachillerato · Química · Tema 1</p>
   <h1>Moléculas en 3D</h1>
-  <p class="hero-sub">Dibuja una molécula (o elige un ejemplo) y obsérvala en tres dimensiones. Verás la hibridación de cada carbono y podrás medir ángulos y distancias de enlace.</p>
+  <p class="hero-sub">Escribe o dibuja una molécula (o elige un ejemplo) y obsérvala en tres dimensiones. Verás la hibridación de cada carbono y podrás medir ángulos y distancias de enlace.</p>
 </div></section>
 
 <main class="mcr-contenedor geo-main">
-  <nav class="geo-ejemplos" aria-label="Ejemplos" id="ejemplos"></nav>
+  <section class="geo-entrada">
+    <form id="form-formula" class="geo-form" autocomplete="off">
+      <label for="formula">Escribe la fórmula semidesarrollada</label>
+      <div class="geo-fila"><input id="formula" class="mcr-input" spellcheck="false" placeholder="CH3–CH(OH)–COOH" aria-describedby="aviso-formula ayuda-formula">
+        <button class="mcr-btn mcr-btn--prim">Ver en 3D</button></div>
+      <p id="ayuda-formula" class="ayuda">Enlaces con - = ≡ (o #); ramas entre paréntesis: CH3–CH(CH3)–CH3, (CH3)3C–OH. Grupos: OH, CHO, CO, COOH, COO, NH2, CN, CONH2, Cl, Br… Las cifras pueden ir normales: CH3 = CH₃.</p>
+      <p id="aviso-formula" role="alert"></p>
+    </form>
+    <div><p class="geo-o">o elige un ejemplo</p><nav class="geo-ejemplos" aria-label="Ejemplos" id="ejemplos"></nav></div>
+  </section>
 
   <div class="geo-paneles">
     <section class="geo-panel">
-      <h2 class="geo-titulo"><span class="geo-num">1</span> Dibuja</h2>
+      <h2 class="geo-titulo"><span class="geo-num">1</span> Dibuja o cambia la molécula</h2>
       <div class="geo-editor" id="editor"><p class="geo-cargando">Cargando el editor…</p></div>
-      <p class="ayuda">Elige el enlace o el átomo en la barra de la izquierda y pulsa en el lienzo. No hace falta dibujar los hidrógenos: se añaden solos.</p>
+      <p class="ayuda">Elige un enlace o un átomo arriba y pulsa en el lienzo: en un átomo para alargar la cadena, en un enlace para hacerlo doble o triple. No hace falta dibujar los hidrógenos: se añaden solos.</p>
     </section>
 
     <section class="geo-panel">
