@@ -1,0 +1,37 @@
+/* Moléculas en 3D (geometria.html) */
+.geo-main { padding-top: 20px; padding-bottom: 40px; display: grid; gap: 20px; }
+.geo-ejemplos { display: flex; flex-wrap: wrap; gap: 6px; }
+.geo-chip { font: 600 .85rem/1 var(--font-marca); padding: .5rem .75rem; border: 1px solid var(--linea); border-radius: 999px; background: var(--papel); color: var(--tinta); cursor: pointer; }
+.geo-chip:hover { border-color: var(--acento); color: var(--texto); }
+.geo-chip[aria-pressed="true"] { background: var(--acento); border-color: var(--acento); color: var(--sobre-acento); }
+.geo-paneles { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+.geo-panel, .geo-medir { background: var(--papel); border: 1px solid var(--linea); border-left: 5px solid var(--acento); border-radius: 8px; padding: 16px 18px; min-width: 0; }
+.geo-titulo { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font: 600 1.15rem/1.2 var(--font-marca); color: var(--tinta); }
+.geo-num { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--acento); color: var(--sobre-acento); font-size: .95rem; }
+.geo-editor { position: relative; height: 420px; border: 1px solid var(--linea); border-radius: 6px; overflow: hidden; background: #fff; }
+.geo-editor > :not(.geo-cargando) { width: 100%; height: 100%; }
+.geo-cargando { padding: 1rem; color: var(--tinta-suave); }
+.geo-visor { position: relative; height: 420px; border: 1px solid var(--linea); border-radius: 6px; overflow: hidden; background: #fff; touch-action: none; }
+.geo-controles { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 12px; }
+.geo-controles .check { margin: 0; gap: .35rem; }
+.geo-segmentado { display: inline-flex; border: 1px solid var(--linea); border-radius: 6px; overflow: hidden; }
+.geo-segmentado button { font: 600 .85rem/1 var(--font-marca); padding: .5rem .7rem; border: 0; background: var(--papel); color: var(--tinta); cursor: pointer; }
+.geo-segmentado button + button { border-left: 1px solid var(--linea); }
+.geo-segmentado button[aria-pressed="true"] { background: var(--acento); color: var(--sobre-acento); }
+.geo-leyenda { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font-size: .9rem; color: var(--tinta-suave); }
+.geo-leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+.geo-leyenda i, .geo-punto { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #94A3B8; vertical-align: -2px; }
+.geo-punto { margin-right: 6px; }
+.geo-medida { margin: 0 0 10px; font-size: 1.05rem; }
+.geo-medir .btn { justify-self: start; }
+.geo-formula { font-family: var(--font-formulas); font-size: 1.1em; }
+.geo-tabla { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.geo-tabla th, .geo-tabla td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--linea); }
+.geo-tabla th { font: 600 .8rem/1.2 var(--font-marca); text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-suave); }
+.geo-tabla .geo-cero { color: var(--tinta-suave); opacity: .6; }
+.geo-resumen { overflow-x: auto; }
+body.embed .geo-main { padding: 0; }
+@media (max-width: 860px) {
+  .geo-paneles { grid-template-columns: 1fr; }
+  .geo-editor, .geo-visor { height: 360px; }
+}

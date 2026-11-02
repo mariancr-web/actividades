@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1E293B">
+<title>Moléculas en 3D · mariancr</title>
+<meta name="description" content="Dibuja una molécula orgánica y obsérvala en 3D: hibridación de cada carbono, ángulos y distancias de enlace.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://mariancr-marca.vercel.app/mariancr.css">
+<link rel="stylesheet" href="actividades.css">
+<link rel="stylesheet" href="visor.css">
+<link rel="stylesheet" href="geometria.css">
+<link rel="icon" href="https://mariancr-marca.vercel.app/logo/simbolo/mcr_2bach.svg" type="image/svg+xml">
+<script src="https://cdn.jsdelivr.net/npm/3dmol@2.5.5/build/3Dmol-min.js"></script>
+</head>
+<body class="mcr mcr-app curso-2bach">
+<header class="mcr-barra" data-sin-embed><a class="mcr-barra__marca" href="./"><img src="https://mariancr-marca.vercel.app/logo/horizontal/mcr_horizontal_negativo.svg" alt="mariancr"><span class="mcr-barra__nombre">Actividades</span></a></header>
+
+<section class="mcr-trama-banda" data-sin-embed><div class="mcr-contenedor mcr-hero">
+  <p class="hero-sup">2.º Bachillerato · Química · Tema 1</p>
+  <h1>Moléculas en 3D</h1>
+  <p class="hero-sub">Dibuja una molécula (o elige un ejemplo) y obsérvala en tres dimensiones. Verás la hibridación de cada carbono y podrás medir ángulos y distancias de enlace.</p>
+</div></section>
+
+<main class="mcr-contenedor geo-main">
+  <nav class="geo-ejemplos" aria-label="Ejemplos" id="ejemplos"></nav>
+
+  <div class="geo-paneles">
+    <section class="geo-panel">
+      <h2 class="geo-titulo"><span class="geo-num">1</span> Dibuja</h2>
+      <div class="geo-editor" id="editor"><p class="geo-cargando">Cargando el editor…</p></div>
+      <p class="ayuda">Elige el enlace o el átomo en la barra de la izquierda y pulsa en el lienzo. No hace falta dibujar los hidrógenos: se añaden solos.</p>
+    </section>
+
+    <section class="geo-panel">
+      <h2 class="geo-titulo"><span class="geo-num">2</span> Observa en 3D</h2>
+      <div class="geo-visor" id="visor" aria-label="Molécula en 3D. Arrastra para girarla y usa la rueda o dos dedos para acercarla."></div>
+      <div class="geo-controles">
+        <div class="geo-segmentado" role="group" aria-label="Modelo">
+          <button type="button" data-estilo="bolas" aria-pressed="true">Bolas y varillas</button>
+          <button type="button" data-estilo="varillas" aria-pressed="false">Varillas</button>
+          <button type="button" data-estilo="relleno" aria-pressed="false">Compacto</button>
+        </div>
+        <label class="check"><input type="checkbox" id="c-hib" checked> Colorear por hibridación</label>
+        <label class="check"><input type="checkbox" id="c-etq"> Etiquetas sp³ / sp² / sp</label>
+        <label class="check"><input type="checkbox" id="c-girar"> Girar sola</label>
+      </div>
+      <div class="geo-leyenda" id="leyenda"></div>
+    </section>
+  </div>
+
+  <section class="geo-medir" aria-live="polite">
+    <h2 class="geo-titulo"><span class="geo-num">3</span> Mide</h2>
+    <p id="medida" class="geo-medida">Pulsa dos átomos para medir la distancia de enlace, o tres para medir el ángulo (el segundo es el vértice).</p>
+    <button type="button" class="btn peq" id="borrar-medida">Borrar la medida</button>
+  </section>
+
+  <section class="geo-resumen">
+    <h2 class="mcr-seccion">Los carbonos de esta molécula</h2>
+    <div id="resumen"></div>
+  </section>
+</main>
+<footer class="mcr-pie-app" data-sin-embed>mariancr · Moléculas en 3D</footer>
+<script type="module" src="geometria.js"></script>
+</body>
+</html>
