@@ -1,0 +1,738 @@
+{
+  "app": "clase-en-directo",
+  "version": 1,
+  "tema": "2bach-quim-t01",
+  "curso": "2bach",
+  "materia": "Química",
+  "numero": 1,
+  "titulo": "Química del carbono",
+  "apartados": {
+    "1": "Introducción",
+    "2": "El átomo de carbono",
+    "3": "Grupos funcionales. Series homólogas",
+    "4": "Isomería",
+    "5": "Reacciones orgánicas",
+    "1.1": "Propiedades generales",
+    "2.1": "Enlaces C–C",
+    "2.2": "Cadenas carbonadas",
+    "2.3": "Tipos de fórmulas",
+    "3.1": "Definiciones",
+    "3.2": "Propiedades",
+    "3.3": "Grupos funcionales",
+    "4.1": "Isomería estructural (plana)",
+    "4.2": "Isomería espacial (estereoisomería)",
+    "5.1": "Generalidades",
+    "5.2": "Sustitución",
+    "5.3": "Adición",
+    "5.4": "Eliminación",
+    "5.5": "Oxidación-reducción",
+    "5.6": "Condensación",
+    "5.7": "Otras reacciones",
+    "5.8": "Cuadros resumen"
+  },
+  "preguntas": [
+    {
+      "id": "q2b-t01-01",
+      "tema": "2bach-quim-t01",
+      "ancla": "1.1",
+      "type": "wall",
+      "prompt": "¿Qué compuestos orgánicos usas en tu día a día? Escribe uno y para qué sirve.",
+      "images": true,
+      "names": false,
+      "soloDirecto": true
+    },
+    {
+      "id": "q2b-t01-02",
+      "tema": "2bach-quim-t01",
+      "ancla": "1.1",
+      "type": "quiz",
+      "prompt": "¿Cuál de estas sustancias, aunque contiene carbono, NO se estudia como compuesto orgánico?",
+      "options": [
+        "Urea, $\\ce{CO(NH2)2}$",
+        "Ácido acético, $\\ce{CH3COOH}$",
+        "Carbonato de calcio, $\\ce{CaCO3}$",
+        "Metano, $\\ce{CH4}$"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "q2b-t01-03",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.1",
+      "type": "search",
+      "prompt": "Conceptos del carbono: lee las pistas y encuentra las palabras en la sopa de letras.",
+      "words": [
+        "Tetravalencia",
+        "Hibridación",
+        "Sigma",
+        "Primario",
+        "Cuaternario",
+        "Alcanos",
+        "Alquenos",
+        "Alquinos",
+        "Aromáticos",
+        "Tetraédrica"
+      ],
+      "clues": [
+        "Capacidad del carbono para formar cuatro enlaces",
+        "Mezcla de orbitales atómicos para formar enlaces",
+        "Enlace que se forma por solapamiento frontal",
+        "Carbono unido a un solo átomo de carbono",
+        "Carbono unido a cuatro átomos de carbono",
+        "Hidrocarburos saturados (solo enlaces simples)",
+        "Hidrocarburos con algún enlace doble C=C",
+        "Hidrocarburos con algún enlace triple",
+        "Hidrocarburos derivados del benceno",
+        "Geometría de un carbono sp³"
+      ],
+      "reverse": false,
+      "grid": [
+        "CPRIMARIORHUIRL",
+        "QTSHIBRIDACIONT",
+        "VADDDLDLRCTNOAE",
+        "NSIONEOPHUIHOIT",
+        "IAPEIETTPAEEMDR",
+        "BALTIAUITTRVAÑA",
+        "HTETRAVALENCIAE",
+        "EIOAUBSÑÑRAAJTD",
+        "ALCANOSGNNTLOIR",
+        "DAGCSUSIÑAEQUOI",
+        "ALQUENOSUREUBOC",
+        "EAJAOLVDEIAIUTA",
+        "NCVSIGMAEOENESE",
+        "VAROMATICOSOCCR",
+        "CCFÑIBEAORZSOCE"
+      ],
+      "placed": [
+        {
+          "r": 6,
+          "c": 1,
+          "dr": 0,
+          "dc": 1,
+          "n": 13
+        },
+        {
+          "r": 1,
+          "c": 3,
+          "dr": 0,
+          "dc": 1,
+          "n": 11
+        },
+        {
+          "r": 12,
+          "c": 3,
+          "dr": 0,
+          "dc": 1,
+          "n": 5
+        },
+        {
+          "r": 0,
+          "c": 1,
+          "dr": 0,
+          "dc": 1,
+          "n": 8
+        },
+        {
+          "r": 2,
+          "c": 9,
+          "dr": 1,
+          "dc": 0,
+          "n": 11
+        },
+        {
+          "r": 8,
+          "c": 0,
+          "dr": 0,
+          "dc": 1,
+          "n": 7
+        },
+        {
+          "r": 10,
+          "c": 0,
+          "dr": 0,
+          "dc": 1,
+          "n": 8
+        },
+        {
+          "r": 7,
+          "c": 11,
+          "dr": 1,
+          "dc": 0,
+          "n": 8
+        },
+        {
+          "r": 13,
+          "c": 1,
+          "dr": 0,
+          "dc": 1,
+          "n": 10
+        },
+        {
+          "r": 1,
+          "c": 14,
+          "dr": 1,
+          "dc": 0,
+          "n": 11
+        }
+      ]
+    },
+    {
+      "id": "q2b-t01-04",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.1",
+      "type": "label",
+      "prompt": "Tipos de carbono: indica qué tipo es cada carbono numerado del 2,2,4-trimetilpentano.",
+      "image": "data:image/png;base64,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",
+      "points": [
+        {
+          "x": 11.5,
+          "y": 37.4,
+          "t": "Primario"
+        },
+        {
+          "x": 26.4,
+          "y": 40.3,
+          "t": "Cuaternario"
+        },
+        {
+          "x": 50,
+          "y": 37.4,
+          "t": "Secundario"
+        },
+        {
+          "x": 69.2,
+          "y": 63.1,
+          "t": "Terciario"
+        }
+      ],
+      "write": false,
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-05",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.1",
+      "type": "table",
+      "prompt": "Completa la tabla de la hibridación del carbono.",
+      "table": "Hibridación | Enlace C–C | Geometría | Ángulo (°)\nsp$^3$ | [[simple]] | [[tetraédrica]] | [[109,5]]\nsp$^2$ | [[doble]] | [[trigonal plana]] | [[120]]\nsp | [[triple]] | [[lineal]] | [[180]]",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-06",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.1",
+      "type": "gaps",
+      "prompt": "Completa sobre los tipos de enlace.",
+      "text": "Un enlace simple es siempre un enlace [[σ|sigma]]. Un enlace doble tiene un enlace σ y [[un|uno|1]] enlace π, y un enlace triple tiene un σ y [[dos|2]] π. El enlace π se forma por solapamiento [[lateral]] y es [[menos]] estable que el σ.",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-07",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.1",
+      "type": "quiz",
+      "prompt": "¿Qué hibridación tiene el carbono 2 del propeno, $\\ce{CH2=CH-CH3}$?",
+      "options": [
+        "sp$^3$",
+        "sp$^2$",
+        "sp",
+        "No tiene hibridación"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "q2b-t01-08",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.1",
+      "type": "match",
+      "prompt": "Une cada molécula con la hibridación de sus carbonos y su geometría.",
+      "pairs": [
+        [
+          "Etano, $\\ce{CH3-CH3}$",
+          "sp³, tetraédrica"
+        ],
+        [
+          "Eteno, $\\ce{CH2=CH2}$",
+          "sp², trigonal plana"
+        ],
+        [
+          "Etino, $\\ce{CH#CH}$",
+          "sp, lineal"
+        ]
+      ]
+    },
+    {
+      "id": "q2b-t01-09",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.2",
+      "type": "memory",
+      "prompt": "Memory: une cada tipo de hidrocarburo con su descripción.",
+      "pairs": [
+        [
+          "Alcano",
+          "$C_nH_{2n+2}$"
+        ],
+        [
+          "Alqueno",
+          "$C_nH_{2n}$"
+        ],
+        [
+          "Alquino",
+          "$C_nH_{2n-2}$"
+        ],
+        [
+          "Aromático",
+          "Derivado del benceno"
+        ],
+        [
+          "Alifático",
+          "Cadena abierta"
+        ],
+        [
+          "Cíclico",
+          "Cadena cerrada"
+        ]
+      ]
+    },
+    {
+      "id": "q2b-t01-10",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.2",
+      "type": "quiz",
+      "prompt": "Los alquenos y los alquinos son más reactivos que los alcanos porque…",
+      "options": [
+        "tienen enlaces π, menos estables que los σ",
+        "son más polares",
+        "tienen más átomos de hidrógeno",
+        "sus puntos de ebullición son más bajos"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "q2b-t01-11",
+      "tema": "2bach-quim-t01",
+      "ancla": "2.3",
+      "type": "match",
+      "prompt": "Une cada tipo de fórmula con la del butano.",
+      "pairs": [
+        [
+          "Empírica",
+          "C₂H₅"
+        ],
+        [
+          "Molecular",
+          "C₄H₁₀"
+        ],
+        [
+          "Semidesarrollada",
+          "CH₃–CH₂–CH₂–CH₃"
+        ],
+        [
+          "General de su serie",
+          "CₙH₂ₙ₊₂"
+        ]
+      ]
+    },
+    {
+      "id": "q2b-t01-12",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.2",
+      "type": "table",
+      "prompt": "Propiedades de los compuestos orgánicos: escribe «aumenta» o «disminuye».",
+      "table": "Si aumenta… | Puntos de fusión y ebullición | Solubilidad en agua\nla polaridad | [[aumenta]] | [[aumenta]]\nla longitud de la cadena | [[aumenta]] | [[disminuye]]",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-13",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.2",
+      "type": "order",
+      "prompt": "Ordena de menor a mayor punto de ebullición.",
+      "steps": [
+        "Metano, $\\ce{CH4}$",
+        "Etano, $\\ce{CH3CH3}$",
+        "Propano, $\\ce{CH3CH2CH3}$",
+        "Butano, $\\ce{CH3CH2CH2CH3}$",
+        "Butan-1-ol, $\\ce{CH3CH2CH2CH2OH}$"
+      ]
+    },
+    {
+      "id": "q2b-t01-14",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.2",
+      "type": "quiz",
+      "prompt": "¿Cuál de estos compuestos es más soluble en agua?",
+      "options": [
+        "Etano",
+        "Etanol",
+        "Butano",
+        "Benceno"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "q2b-t01-15",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.3",
+      "type": "match",
+      "prompt": "Une cada grupo funcional con su familia.",
+      "pairs": [
+        [
+          "$\\ce{-OH}$",
+          "Alcohol"
+        ],
+        [
+          "$\\ce{-CHO}$",
+          "Aldehído"
+        ],
+        [
+          "$\\ce{-CO-}$",
+          "Cetona"
+        ],
+        [
+          "$\\ce{-COOH}$",
+          "Ácido carboxílico"
+        ],
+        [
+          "$\\ce{-COO-}$",
+          "Éster"
+        ],
+        [
+          "$\\ce{-O-}$",
+          "Éter"
+        ],
+        [
+          "$\\ce{-NH2}$",
+          "Amina"
+        ],
+        [
+          "$\\ce{-CONH2}$",
+          "Amida"
+        ]
+      ]
+    },
+    {
+      "id": "q2b-t01-16",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.3",
+      "type": "memory",
+      "prompt": "Memory: une cada compuesto con su fórmula.",
+      "pairs": [
+        [
+          "Etanol",
+          "$\\ce{CH3CH2OH}$"
+        ],
+        [
+          "Etanal",
+          "$\\ce{CH3CHO}$"
+        ],
+        [
+          "Propanona",
+          "$\\ce{CH3COCH3}$"
+        ],
+        [
+          "Ácido etanoico",
+          "$\\ce{CH3COOH}$"
+        ],
+        [
+          "Etanoato de metilo",
+          "$\\ce{CH3COOCH3}$"
+        ],
+        [
+          "Dimetil éter",
+          "$\\ce{CH3OCH3}$"
+        ],
+        [
+          "Metilamina",
+          "$\\ce{CH3NH2}$"
+        ],
+        [
+          "Etanamida",
+          "$\\ce{CH3CONH2}$"
+        ]
+      ]
+    },
+    {
+      "id": "q2b-t01-17",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.1",
+      "type": "table",
+      "prompt": "Isomería estructural: escribe si cada pareja son isómeros de «cadena», «posición» o «función».",
+      "table": "Pareja | Isomería\nButano y metilpropano | [[cadena]]\nPropanona y propanal | [[función]]\nButan-1-ol y butan-2-ol | [[posición]]\nEtanol y dimetil éter | [[función]]\nBut-1-eno y but-2-eno | [[posición]]\nPentano y 2,2-dimetilpropano | [[cadena]]",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-18",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.1",
+      "type": "quiz",
+      "prompt": "¿Qué pareja NO son isómeros?",
+      "options": [
+        "Ácido propanoico y etanoato de metilo",
+        "Butanal y butanona",
+        "Propan-1-ol y propan-2-ol",
+        "Etanol y etanal"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "q2b-t01-19",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.1",
+      "type": "short",
+      "prompt": "Escribe la fórmula semidesarrollada de un isómero de posición del 2-clorobutano, $\\ce{CH3CH2CHClCH3}$.",
+      "accepted": "CH3CH2CH2CH2Cl; CH3-CH2-CH2-CH2Cl; CH3–CH2–CH2–CH2Cl; CH2ClCH2CH2CH3; ClCH2CH2CH2CH3; CH2Cl-CH2-CH2-CH3; CH2Cl–CH2–CH2–CH3; 1-clorobutano"
+    },
+    {
+      "id": "q2b-t01-20",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.2",
+      "type": "quiz",
+      "prompt": "¿Cuál de estos alquenos presenta isomería geométrica (cis-trans)?",
+      "options": [
+        "But-1-eno, $\\ce{CH2=CH-CH2-CH3}$",
+        "But-2-eno, $\\ce{CH3-CH=CH-CH3}$",
+        "Propeno, $\\ce{CH2=CH-CH3}$",
+        "2-metilpropeno, $\\ce{CH2=C(CH3)-CH3}$"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "q2b-t01-21",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.2",
+      "type": "quiz",
+      "prompt": "¿Cuál de estos alcoholes tiene un carbono asimétrico?",
+      "options": [
+        "Etanol",
+        "Propan-2-ol",
+        "Butan-2-ol",
+        "2-metilpropan-2-ol"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "q2b-t01-22",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.2",
+      "type": "label",
+      "prompt": "Indica qué carbonos numerados del 3-metilpentan-2-ol son asimétricos (C*).",
+      "image": "data:image/png;base64,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",
+      "points": [
+        {
+          "x": 6.4,
+          "y": 85.3,
+          "t": "No asimétrico"
+        },
+        {
+          "x": 25.6,
+          "y": 85.3,
+          "t": "Asimétrico"
+        },
+        {
+          "x": 44.9,
+          "y": 85.3,
+          "t": "Asimétrico"
+        },
+        {
+          "x": 64.1,
+          "y": 85.3,
+          "t": "No asimétrico"
+        },
+        {
+          "x": 83.3,
+          "y": 85.3,
+          "t": "No asimétrico"
+        }
+      ],
+      "write": false,
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-23",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.2",
+      "type": "number",
+      "prompt": "¿Cuántos estereoisómeros puede tener como máximo el 3-metilpentan-2-ol, que tiene dos carbonos asimétricos?",
+      "answer": 4,
+      "tolerance": 0,
+      "unitMode": "show"
+    },
+    {
+      "id": "q2b-t01-24",
+      "tema": "2bach-quim-t01",
+      "ancla": "4.2",
+      "type": "gaps",
+      "prompt": "Completa sobre la isomería óptica.",
+      "text": "Un carbono asimétrico está unido a [[cuatro|4]] sustituyentes distintos. Los isómeros ópticos o [[enantiómeros]] son imágenes [[especulares]] no superponibles. Uno desvía el plano de la luz polarizada hacia la derecha ([[dextrógiro]]) y el otro hacia la izquierda ([[levógiro]]). Una mezcla de los dos al 50 % se llama mezcla [[racémica]] y no desvía la luz.",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-25",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.1",
+      "type": "match",
+      "prompt": "Une cada reacción con su tipo.",
+      "pairs": [
+        [
+          "$\\ce{CH3-Cl + H2O -> CH3-OH + HCl}$",
+          "Sustitución"
+        ],
+        [
+          "$\\ce{CH2=CH2 + Cl2 -> CH2Cl-CH2Cl}$",
+          "Adición"
+        ],
+        [
+          "$\\ce{CH3-CH2OH ->[H2SO4][calor] CH2=CH2 + H2O}$",
+          "Eliminación"
+        ],
+        [
+          "$\\ce{CH3COOH + CH3OH -> CH3COOCH3 + H2O}$",
+          "Condensación"
+        ],
+        [
+          "$\\ce{R-CH2OH -> R-CHO}$",
+          "Oxidación"
+        ]
+      ]
+    },
+    {
+      "id": "q2b-t01-26",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.3",
+      "type": "quiz",
+      "prompt": "¿Cuál es el producto mayoritario de $\\ce{CH3-CH=CH2 + HBr ->}$?",
+      "options": [
+        "$\\ce{CH3-CHBr-CH3}$ (2-bromopropano)",
+        "$\\ce{CH3-CH2-CH2Br}$ (1-bromopropano)",
+        "$\\ce{CH3-CHBr-CH2Br}$ (1,2-dibromopropano)",
+        "$\\ce{CH3-CH2-CH3}$ (propano)"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "q2b-t01-27",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.3",
+      "type": "short",
+      "prompt": "Escribe el producto orgánico de la hidrogenación $\\ce{CH2=CH2 + H2 ->[Ni]}$",
+      "accepted": "CH3CH3; CH3-CH3; CH3–CH3; C2H6; etano"
+    },
+    {
+      "id": "q2b-t01-28",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.4",
+      "type": "quiz",
+      "prompt": "Al calentar butan-2-ol con $\\ce{H2SO4}$, ¿qué producto se forma mayoritariamente?",
+      "options": [
+        "But-2-eno, $\\ce{CH3-CH=CH-CH3}$",
+        "But-1-eno, $\\ce{CH2=CH-CH2-CH3}$",
+        "Butanona, $\\ce{CH3-CO-CH2-CH3}$",
+        "Butano, $\\ce{CH3-CH2-CH2-CH3}$"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "q2b-t01-29",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.5",
+      "type": "order",
+      "prompt": "Ordena de menos a más oxidado el carbono de estos compuestos.",
+      "steps": [
+        "Metano, $\\ce{CH4}$",
+        "Metanol, $\\ce{CH3OH}$",
+        "Metanal, $\\ce{HCHO}$",
+        "Ácido metanoico, $\\ce{HCOOH}$",
+        "Dióxido de carbono, $\\ce{CO2}$"
+      ]
+    },
+    {
+      "id": "q2b-t01-30",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.5",
+      "type": "table",
+      "prompt": "Completa qué se obtiene al oxidar cada tipo de alcohol.",
+      "table": "Alcohol | Al oxidarse da… | Si se sigue oxidando da…\nPrimario | [[aldehído]] | [[ácido carboxílico]]\nSecundario | [[cetona]] | no se oxida más\nTerciario | [[no se oxida]] | —",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-31",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.6",
+      "type": "gaps",
+      "prompt": "Completa la esterificación.",
+      "text": "$\\ce{CH3COOH + CH3OH ->[H+]}$ $\\ce{CH3COOCH3}$ + [[agua|H2O]]. El producto orgánico se llama [[etanoato de metilo|acetato de metilo]] y la reacción es de [[condensación|esterificación]].",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-32",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.7",
+      "type": "memory",
+      "prompt": "Memory: une cada reacción con lo que ocurre.",
+      "pairs": [
+        [
+          "Combustión",
+          "Con $\\ce{O2}$ da $\\ce{CO2}$ y $\\ce{H2O}$"
+        ],
+        [
+          "Saponificación",
+          "Éster + NaOH: jabón y alcohol"
+        ],
+        [
+          "Polimerización",
+          "Unión de muchos monómeros"
+        ],
+        [
+          "Craqueo",
+          "Rotura de moléculas grandes con calor"
+        ],
+        [
+          "Isomerización",
+          "Un grupo cambia de posición en la molécula"
+        ]
+      ]
+    },
+    {
+      "id": "q2b-t01-33",
+      "tema": "2bach-quim-t01",
+      "ancla": "5.8",
+      "type": "match",
+      "prompt": "Une cada reacción con sus reactivos y condiciones.",
+      "pairs": [
+        [
+          "Halogenación de alcanos",
+          "X₂ y luz (hν)"
+        ],
+        [
+          "Hidrogenación de alquenos",
+          "H₂ con catalizador (Ni, Pt, Pd)"
+        ],
+        [
+          "Hidratación de alquenos",
+          "H₂O en medio ácido (H₂SO₄)"
+        ],
+        [
+          "Deshidratación de alcoholes",
+          "H₂SO₄ concentrado y calor"
+        ],
+        [
+          "Deshidrohalogenación",
+          "KOH en etanol"
+        ],
+        [
+          "Oxidación de alcoholes",
+          "KMnO₄ o K₂Cr₂O₇ en medio ácido"
+        ],
+        [
+          "Reducción de aldehídos y cetonas",
+          "LiAlH₄ o H₂"
+        ],
+        [
+          "Esterificación",
+          "Ácido carboxílico + alcohol, medio ácido"
+        ]
+      ]
+    }
+  ]
+}

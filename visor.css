@@ -1,0 +1,52 @@
+/* Visor de actividades · lo propio de esta web. Lo común viene de mariancr.css y actividades.css (copia de Clase en directo). */
+.visor-main { padding-top: 24px; padding-bottom: 40px; max-width: 52rem; }
+.hero-sup { margin: 0 0 .35rem; font: 600 .85rem/1.2 var(--font-marca); letter-spacing: .06em; text-transform: uppercase; color: rgba(255, 255, 255, .8); }
+.hero-sub { margin: .35rem 0 0; color: rgba(255, 255, 255, .85); max-width: 40rem; }
+.mcr-hero .mcr-filtros { margin-top: 16px; flex-wrap: wrap; }
+.mcr-hero a.mcr-filtro { text-decoration: none; color: #fff; }
+.mcr-hero a.mcr-filtro[aria-pressed="true"] { color: var(--sobre-acento, #fff); }
+
+/* Progreso del tema */
+.progreso { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 14px; color: #fff; font-size: .95rem; }
+.progreso-barra { flex: 0 1 220px; height: 8px; border-radius: 99px; background: rgba(255, 255, 255, .22); overflow: hidden; }
+.progreso-barra span { display: block; height: 100%; width: 0; background: var(--acento); transition: width .3s; }
+
+/* Tarjeta de cada actividad */
+.apartado { margin-bottom: 8px; }
+.tarjeta-act { max-width: none; background: var(--papel); border: 1px solid var(--linea); border-left: 5px solid var(--acento); border-radius: 8px; padding: 18px 20px 20px; margin: 0 0 16px; }
+.tarjeta-act .enunciado { font-size: clamp(1.1rem, 2.4vw, 1.3rem); margin: 0 0 1rem; line-height: 1.35; }
+.act-cab { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.act-cab .tipo { margin: 0; }
+.act-enlace { color: var(--tinta-suave); }
+.act-enlace.copiado { color: var(--ok); }
+.act-enlace.copiado::after { content: " Copiado"; font-size: .8rem; }
+.act-acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.act-cuerpo .btn.primario { justify-self: start; }
+.act-cuerpo .tu-resp { margin: 12px 0 0; }
+.ver-sol { margin-top: 10px; }
+.ver-sol summary { cursor: pointer; color: var(--texto); font-weight: 600; }
+
+/* Test corregido */
+.opciones-res { list-style: none; padding: 0; margin: 0; }
+.opciones-res .op-alumno { cursor: default; }
+.op-alumno.ok { border-color: var(--ok); background: var(--ok-fondo); }
+.op-alumno.mal { border-color: var(--mal); background: var(--mal-fondo); }
+.marca-ok, .marca-yo { font-size: .75rem; font-weight: 700; margin-left: .4rem; text-transform: uppercase; letter-spacing: .04em; }
+.marca-ok { color: var(--ok); } .marca-yo { color: var(--tinta-suave); }
+.ver-todo { text-align: center; margin-top: 8px; }
+
+/* Dentro del libro (iframe): sin cabecera ni pie */
+body.embed { background: transparent; }
+body.embed .visor-main { padding: 0; max-width: none; }
+body.embed .mcr-seccion { margin-top: 8px; font-size: 18px; }
+body.embed .tarjeta-act { margin-bottom: 12px; }
+@media (max-width: 600px) { .tarjeta-act { padding: 14px 14px 16px; } }
+
+/* Parejas con fórmulas largas: la fórmula se desplaza en lugar de montarse sobre la lista */
+.tarjeta-act .parejas li { grid-template-columns: minmax(0, 1fr) auto minmax(9rem, .7fr); }
+.tarjeta-act .pareja-izq { min-width: 0; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }
+@media (max-width: 640px) {
+  .tarjeta-act .parejas li { grid-template-columns: 1fr; gap: .35rem; }
+  .tarjeta-act .parejas li > :nth-child(n+3) { grid-column: 1; }
+  .tarjeta-act .pareja-flecha { display: none; }
+}
