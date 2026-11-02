@@ -214,7 +214,7 @@
       "ancla": "2.1",
       "type": "table",
       "prompt": "Completa la tabla de la hibridación del carbono.",
-      "table": "Hibridación | Enlace C–C | Geometría | Ángulo (°)\nsp$^3$ | [[simple]] | [[tetraédrica]] | [[109,5]]\nsp$^2$ | [[doble]] | [[trigonal plana]] | [[120]]\nsp | [[triple]] | [[lineal]] | [[180]]",
+      "table": "Hibridación | Enlace C–C | Geometría | Ángulo (°)\nsp$^3$ | [[simple]] | [[tetraédrica]] | [[109,5|109.5]]\nsp$^2$ | [[doble]] | [[triangular plana|trigonal plana]] | [[120]]\nsp | [[triple]] | [[lineal]] | [[180]]",
       "caseSensitive": false
     },
     {
@@ -253,7 +253,7 @@
         ],
         [
           "Eteno, $\\ce{CH2=CH2}$",
-          "sp², trigonal plana"
+          "sp², triangular plana"
         ],
         [
           "Etino, $\\ce{CH#CH}$",
