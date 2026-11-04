@@ -6,5 +6,13 @@
     "numero": 1,
     "titulo": "Química del carbono",
     "actividades": 32
+  },
+  {
+    "tema": "2bach-quim-t02",
+    "curso": "2bach",
+    "materia": "Química",
+    "numero": 2,
+    "titulo": "Estructura atómica y sistema periódico",
+    "actividades": 28
   }
 ]
