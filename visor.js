@@ -39,7 +39,8 @@ async function portada() {
   app.innerHTML = `${barra()}
   <section class="mcr-trama-banda"><div class="mcr-contenedor mcr-hero"><div class="mcr-hero__fila"><div><h1>Actividades interactivas</h1>
     <p class="hero-sub">Practica cada tema a tu ritmo. Se corrigen solas y tu progreso se guarda en este dispositivo.</p></div>
-    <label class="mcr-btn mcr-btn--sec">Probar un archivo<input type="file" id="archivo" accept=".json,application/json" hidden></label></div></div></section>
+    <div class="visor-acciones"><a class="mcr-btn mcr-btn--prim" href="editor.html">Editor de actividades</a>
+    <label class="mcr-btn mcr-btn--sec">Probar un archivo<input type="file" id="archivo" accept=".json,application/json" hidden></label></div></div></div></section>
   <main class="mcr-contenedor visor-main">
     ${cursos.map(c => `<h2 class="mcr-seccion curso-${c}">${esc(cursoDe(c).nombre)} · ${esc(cursoDe(c).materia)}</h2>
       <ul class="mcr-lista">${temas.filter(t => t.curso === c).sort((a, b) => a.numero - b.numero).map(t => {

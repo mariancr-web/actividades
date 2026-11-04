@@ -75,3 +75,5 @@ body.embed .tarjeta-act { margin-bottom: 12px; }
   .ae-acc { grid-column: 1 / -1; justify-content: flex-start; }
   .ae-enun { white-space: normal; }
 }
+
+.visor-acciones { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
