@@ -20,7 +20,7 @@ const guardar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } 
 let UID = guardado('ai-uid', null);
 if (!UID) { UID = 'v' + Math.random().toString(36).slice(2, 10); guardar('ai-uid', UID); }
 
-const LOGO = 'https://mariancr-marca.vercel.app/logo/horizontal/mcr_horizontal_negativo.svg';
+const LOGO = 'https://marca.mariancr.es/logo/horizontal/mcr_horizontal_negativo.svg';
 const barra = () => EMBED ? '' : `<header class="mcr-barra"><a class="mcr-barra__marca" href="./"><img src="${LOGO}" alt="mariancr"><span class="mcr-barra__nombre">Actividades</span></a></header>`;
 const pie = () => EMBED ? '' : `<footer class="mcr-pie-app">mariancr · Actividades interactivas</footer>`;
 

@@ -21,10 +21,10 @@ Usa **el mismo archivo** que se importa en Clase en directo (Banco de preguntas 
 ## Publicar (igual que Clase en directo)
 1. Crea en GitHub un repositorio nuevo (es `mariancr-web/actividades`) y sube todos los archivos de esta carpeta.
 2. En Vercel: *Add New → Project*, elige el repositorio, preset **Other**, sin cambiar nada más, y *Deploy*.
-3. Quedará en una dirección como `https://mariancr-actividades.vercel.app`.
+3. Quedará en una dirección como `https://actividades.mariancr.es`.
 
 ## Crear o cambiar actividades (editor)
-1. Entra en `https://mariancr-actividades.vercel.app/editor.html` (guárdala en favoritos).
+1. Entra en `https://actividades.mariancr.es/editor.html` (guárdala en favoritos).
 2. Pulsa **Editar** en un tema publicado, **Nuevo tema**, o **Abrir un archivo** de tu ordenador.
 3. Añade, edita, duplica, ordena o borra actividades. En «Más opciones» de cada una está el **apartado de los apuntes**. Los cambios se guardan solos en el navegador como borrador.
 4. **Ver como alumno** abre el borrador en el visor para probarlo.

@@ -7,7 +7,7 @@ const app = document.getElementById('app');
 const dlg = document.getElementById('dlg');
 const CLAVE = 'ae-borrador';
 const MATERIA = { BioGeo: 'bg', FyQ: 'fyq', 'Química': 'quim' };
-const LOGO = 'https://mariancr-marca.vercel.app/logo/horizontal/mcr_horizontal_negativo.svg';
+const LOGO = 'https://marca.mariancr.es/logo/horizontal/mcr_horizontal_negativo.svg';
 const SOLO_DIRECTO = ['wall', 'photo', 'draw'];
 
 let doc = null;          // tema abierto: { app, version, tema, curso, materia, numero, titulo, apartados, preguntas }
