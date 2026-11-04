@@ -10,8 +10,9 @@ const URLP = new URLSearchParams(location.search);
 const EMBED = URLP.has('embed');
 if (EMBED) document.body.classList.add('embed');
 
-// Tipos que necesitan a la clase en directo (muro, fotos, dibujo) no se muestran en el libro
-const SOLO_DIRECTO = ['wall', 'photo', 'draw', 'slide', 'link'];
+// Tipos que necesitan a la clase en directo (muro, fotos, dibujo) no se muestran en el libro.
+// Los enlaces (Padlet, Genially…) sí: se abren en otra pestaña y cuentan como hechos al abrirlos.
+const SOLO_DIRECTO = ['wall', 'photo', 'draw', 'slide'];
 const visible = it => it && it.prompt && !SOLO_DIRECTO.includes(it.type) && !it.soloDirecto;
 
 // Semilla propia del dispositivo para las variantes numéricas
@@ -167,7 +168,7 @@ function pintarActividad(el, it, guardada, anotar) {
   const st = { pub: itemPublico(prepararSopa(it)), v: guardada?.v ?? null };
   const jugar = () => { st.pub = itemPublico(prepararSopa(it)); st.v = null; el.innerHTML = cab + '<div class="act-cuerpo">' + formulario(it, st.pub) + '</div>'; activar(); };
   const resolver = (v, ok) => { st.v = v; anotar(it, v, ok); mostrar(); };
-  const mostrar = () => { el.innerHTML = cab + '<div class="act-cuerpo">' + resultado(it, st.v) + `<div class="act-acciones"><button type="button" class="btn" data-otra>Intentarlo otra vez</button></div></div>`; activarComun(); el.querySelector('[data-otra]').onclick = () => { jugar(); avisarAltura(); }; avisarAltura(); };
+  const mostrar = () => { el.innerHTML = cab + '<div class="act-cuerpo">' + resultado(it, st.v) + `${it.type === 'link' ? '' : `<div class="act-acciones"><button type="button" class="btn" data-otra>Intentarlo otra vez</button></div>`}</div>`; activarComun(); const otra = el.querySelector('[data-otra]'); if (otra) otra.onclick = () => { jugar(); avisarAltura(); }; avisarAltura(); };
   const activarComun = () => {
     el.querySelector('.act-enlace').onclick = async () => {
       const u = new URL(location.href); u.search = ''; u.hash = '';
@@ -214,8 +215,13 @@ function formulario(it, pub) {
     return `<form class="form-resp form-partes">${pintarPartes(pub, null, { editable: true })}
       <p class="aviso" role="alert"></p><button class="btn primario">Comprobar</button></form>`;
   }
+  if (it.type === 'link') return botonEnlace(it, it.boton || 'Abrir la actividad');
   return '<p class="estado-act">Esta actividad solo se puede hacer en clase.</p>';
 }
+
+const botonEnlace = (it, texto) => /^https?:\/\//.test(it.url || '')
+  ? `${it.texto ? `<p>${rico(it.texto)}</p>` : ''}<p class="act-acciones"><a class="mcr-btn mcr-btn--prim" href="${esc(it.url)}" target="_blank" rel="noopener" data-abrir>${esc(texto)} ↗</a></p>`
+  : '<p class="estado-act">Falta el enlace de esta actividad.</p>';
 
 function activarFormulario(el, it, pub, resolver) {
   const cuerpo = el.querySelector('.act-cuerpo');
@@ -239,6 +245,7 @@ function activarFormulario(el, it, pub, resolver) {
     };
     return;
   }
+  if (it.type === 'link') { const a = cuerpo.querySelector('[data-abrir]'); if (a) a.addEventListener('click', () => setTimeout(() => resolver('abierta', true), 0)); return; }
   if (it.type === 'memory') { jugarMemory(cuerpo, pub, v => resolver(v, true)); return; }
   if (it.type === 'search') {
     jugarSopa(cuerpo, pub, (halladas, fin) => { if (fin) resolver(halladas, true); });
@@ -273,6 +280,7 @@ function resultado(it, v) {
     return `<p class="tu-resp ${ok ? 'ok' : 'mal'}">Tu respuesta: <strong>${respuestaHTML(it, v)}</strong>. ${ok ? '¡Correcta!' : 'No es correcta.'}</p>
       ${ok ? '' : `<details class="ver-sol"><summary>Ver la solución</summary><p class="solucion">${it.type === 'number' ? 'Solución' : 'Respuestas válidas'}: <strong>${sol}</strong></p></details>`}`;
   }
+  if (it.type === 'link') return botonEnlace(it, 'Abrir otra vez') + '<p class="tu-resp ok">Ya la has abierto.</p>';
   if (it.type === 'memory') {
     return `<p class="tu-resp ok">¡Completado en <strong>${v?.intentos} intentos</strong>${v?.seg ? ` (${v.seg} s)` : ''}!</p>
       <ul class="parejas">${(it.pairs || []).map(p => `<li><span class="pareja-izq">${rico(p[0])}</span><span class="pareja-flecha" aria-hidden="true">→</span><span>${rico(p[1])}</span></li>`).join('')}</ul>`;
