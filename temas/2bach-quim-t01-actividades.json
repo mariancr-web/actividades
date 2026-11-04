@@ -8,19 +8,19 @@
   "titulo": "Química del carbono",
   "apartados": {
     "1": "Introducción",
-    "2": "El átomo de carbono",
-    "3": "Grupos funcionales. Series homólogas",
-    "4": "Isomería",
-    "5": "Reacciones orgánicas",
     "1.1": "Propiedades generales",
+    "2": "El átomo de carbono",
     "2.1": "Enlaces C–C",
     "2.2": "Cadenas carbonadas",
     "2.3": "Tipos de fórmulas",
+    "3": "Grupos funcionales. Series homólogas",
     "3.1": "Definiciones",
-    "3.2": "Propiedades",
-    "3.3": "Grupos funcionales",
+    "3.2": "Grupos funcionales",
+    "3.3": "Propiedades",
+    "4": "Isomería",
     "4.1": "Isomería estructural (plana)",
     "4.2": "Isomería espacial (estereoisomería)",
+    "5": "Reacciones orgánicas",
     "5.1": "Generalidades",
     "5.2": "Sustitución",
     "5.3": "Adición",
@@ -334,46 +334,9 @@
       ]
     },
     {
-      "id": "q2b-t01-12",
-      "tema": "2bach-quim-t01",
-      "ancla": "3.2",
-      "type": "table",
-      "prompt": "Propiedades de los compuestos orgánicos: escribe «aumenta» o «disminuye».",
-      "table": "Si aumenta… | Puntos de fusión y ebullición | Solubilidad en agua\nla polaridad | [[aumenta]] | [[aumenta]]\nla longitud de la cadena | [[aumenta]] | [[disminuye]]",
-      "caseSensitive": false
-    },
-    {
-      "id": "q2b-t01-13",
-      "tema": "2bach-quim-t01",
-      "ancla": "3.2",
-      "type": "order",
-      "prompt": "Ordena de menor a mayor punto de ebullición.",
-      "steps": [
-        "Metano, $\\ce{CH4}$",
-        "Etano, $\\ce{CH3CH3}$",
-        "Propano, $\\ce{CH3CH2CH3}$",
-        "Butano, $\\ce{CH3CH2CH2CH3}$",
-        "Butan-1-ol, $\\ce{CH3CH2CH2CH2OH}$"
-      ]
-    },
-    {
-      "id": "q2b-t01-14",
-      "tema": "2bach-quim-t01",
-      "ancla": "3.2",
-      "type": "quiz",
-      "prompt": "¿Cuál de estos compuestos es más soluble en agua?",
-      "options": [
-        "Etano",
-        "Etanol",
-        "Butano",
-        "Benceno"
-      ],
-      "correct": 1
-    },
-    {
       "id": "q2b-t01-15",
       "tema": "2bach-quim-t01",
-      "ancla": "3.3",
+      "ancla": "3.2",
       "type": "match",
       "prompt": "Une cada grupo funcional con su familia.",
       "pairs": [
@@ -414,7 +377,7 @@
     {
       "id": "q2b-t01-16",
       "tema": "2bach-quim-t01",
-      "ancla": "3.3",
+      "ancla": "3.2",
       "type": "memory",
       "prompt": "Memory: une cada compuesto con su fórmula.",
       "pairs": [
@@ -451,6 +414,43 @@
           "$\\ce{CH3CONH2}$"
         ]
       ]
+    },
+    {
+      "id": "q2b-t01-12",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.3",
+      "type": "table",
+      "prompt": "Propiedades de los compuestos orgánicos: escribe «aumenta» o «disminuye».",
+      "table": "Si aumenta… | Puntos de fusión y ebullición | Solubilidad en agua\nla polaridad | [[aumenta]] | [[aumenta]]\nla longitud de la cadena | [[aumenta]] | [[disminuye]]",
+      "caseSensitive": false
+    },
+    {
+      "id": "q2b-t01-13",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.3",
+      "type": "order",
+      "prompt": "Ordena de menor a mayor punto de ebullición.",
+      "steps": [
+        "Metano, $\\ce{CH4}$",
+        "Etano, $\\ce{CH3CH3}$",
+        "Propano, $\\ce{CH3CH2CH3}$",
+        "Butano, $\\ce{CH3CH2CH2CH3}$",
+        "Butan-1-ol, $\\ce{CH3CH2CH2CH2OH}$"
+      ]
+    },
+    {
+      "id": "q2b-t01-14",
+      "tema": "2bach-quim-t01",
+      "ancla": "3.3",
+      "type": "quiz",
+      "prompt": "¿Cuál de estos compuestos es más soluble en agua?",
+      "options": [
+        "Etano",
+        "Etanol",
+        "Butano",
+        "Benceno"
+      ],
+      "correct": 1
     },
     {
       "id": "q2b-t01-17",
