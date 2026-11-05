@@ -13,6 +13,9 @@ if (EMBED) document.body.classList.add('embed');
 // Tipos que necesitan a la clase en directo (muro, fotos, dibujo) no se muestran en el libro.
 // Los enlaces (Padlet, Genially…) sí: se abren en otra pestaña y cuentan como hechos al abrirlos.
 const SOLO_DIRECTO = ['wall', 'photo', 'draw', 'slide'];
+const TIPOS_VISOR = { timeline: 'Línea del tiempo' };
+// Sin «Intentarlo otra vez»: enlaces y líneas del tiempo para leer
+const SIN_REPETIR = it => it.type === 'link' || (it.type === 'timeline' && it.modo === 'leer');
 const visible = it => it && it.prompt && !SOLO_DIRECTO.includes(it.type) && !it.soloDirecto;
 
 // Semilla propia del dispositivo para las variantes numéricas
@@ -161,14 +164,14 @@ function enlace(cambios) {
 // estado guardado: { v: respuesta, ok: true/false/null }. Si hay respuesta, se enseña corregida.
 function pintarActividad(el, it, guardada, anotar) {
   const n = [...el.parentElement.querySelectorAll('.tarjeta-act')].indexOf(el) + 1;
-  const cab = `<div class="act-cab"><p class="tipo">${esc(nombreTipo(it))}</p>
+  const cab = `<div class="act-cab"><p class="tipo">${esc(nombreTipo(it) || TIPOS_VISOR[it.type] || '')}</p>
     <button type="button" class="btn-ico act-enlace" title="Copiar enlace a esta actividad" aria-label="Copiar enlace a esta actividad">
       <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
     <h3 class="enunciado">${rico(conDatos(it.prompt, it, UID))}</h3>`;
   const st = { pub: itemPublico(prepararSopa(it)), v: guardada?.v ?? null };
   const jugar = () => { st.pub = itemPublico(prepararSopa(it)); st.v = null; el.innerHTML = cab + '<div class="act-cuerpo">' + formulario(it, st.pub) + '</div>'; activar(); };
   const resolver = (v, ok) => { st.v = v; anotar(it, v, ok); mostrar(); };
-  const mostrar = () => { el.innerHTML = cab + '<div class="act-cuerpo">' + resultado(it, st.v) + `${it.type === 'link' ? '' : `<div class="act-acciones"><button type="button" class="btn" data-otra>Intentarlo otra vez</button></div>`}</div>`; activarComun(); const otra = el.querySelector('[data-otra]'); if (otra) otra.onclick = () => { jugar(); avisarAltura(); }; avisarAltura(); };
+  const mostrar = () => { el.innerHTML = cab + '<div class="act-cuerpo">' + resultado(it, st.v) + `${SIN_REPETIR(it) ? '' : `<div class="act-acciones"><button type="button" class="btn" data-otra>Intentarlo otra vez</button></div>`}</div>`; activarComun(); const otra = el.querySelector('[data-otra]'); if (otra) otra.onclick = () => { jugar(); avisarAltura(); }; avisarAltura(); };
   const activarComun = () => {
     el.querySelector('.act-enlace').onclick = async () => {
       const u = new URL(location.href); u.search = ''; u.hash = '';
@@ -216,6 +219,9 @@ function formulario(it, pub) {
       <p class="aviso" role="alert"></p><button class="btn primario">Comprobar</button></form>`;
   }
   if (it.type === 'link') return botonEnlace(it, it.boton || 'Abrir la actividad');
+  if (it.type === 'timeline') return it.modo === 'leer'
+    ? pintarLinea(it) + '<div class="act-acciones"><button type="button" class="btn primario" data-leida>Ya la he repasado</button></div>'
+    : colocarLinea(it);
   return '<p class="estado-act">Esta actividad solo se puede hacer en clase.</p>';
 }
 
@@ -243,6 +249,11 @@ function activarFormulario(el, it, pub, resolver) {
       const u = cuerpo.querySelector('.uni'); if (u) v.u = u.value.trim();
       if (v.n) resolver(v, comprobar(it, v, UID));
     };
+    return;
+  }
+  if (it.type === 'timeline') {
+    if (it.modo === 'leer') cuerpo.querySelector('[data-leida]').onclick = () => resolver('leida', true);
+    else jugarLinea(cuerpo, it, resolver);
     return;
   }
   if (it.type === 'link') { const a = cuerpo.querySelector('[data-abrir]'); if (a) a.addEventListener('click', () => setTimeout(() => resolver('abierta', true), 0)); return; }
@@ -280,6 +291,7 @@ function resultado(it, v) {
     return `<p class="tu-resp ${ok ? 'ok' : 'mal'}">Tu respuesta: <strong>${respuestaHTML(it, v)}</strong>. ${ok ? '¡Correcta!' : 'No es correcta.'}</p>
       ${ok ? '' : `<details class="ver-sol"><summary>Ver la solución</summary><p class="solucion">${it.type === 'number' ? 'Solución' : 'Respuestas válidas'}: <strong>${sol}</strong></p></details>`}`;
   }
+  if (it.type === 'timeline') return it.modo === 'leer' ? pintarLinea(it) + '<p class="tu-resp ok">Repasada.</p>' : resultadoLinea(it, v);
   if (it.type === 'link') return botonEnlace(it, 'Abrir otra vez') + '<p class="tu-resp ok">Ya la has abierto.</p>';
   if (it.type === 'memory') {
     return `<p class="tu-resp ok">¡Completado en <strong>${v?.intentos} intentos</strong>${v?.seg ? ` (${v.seg} s)` : ''}!</p>
@@ -297,6 +309,73 @@ function resultado(it, v) {
 }
 
 const veredicto = ok => ok == null ? '' : `<p class="tu-resp ${ok ? 'ok' : 'mal'}">${ok ? '¡Correcta!' : 'No es correcta: fíjate en la opción marcada como correcta.'}</p>`;
+
+// ── Línea del tiempo ─────────────────────────────────────────────
+// { type:'timeline', modo:'leer'|'colocar', events:[{ fecha, titulo, autor?, texto?, pista?, svg? }] } en orden cronológico.
+// «leer»: la línea con cada hito. «colocar»: las fechas están en la línea y el alumno pone cada tarjeta en su sitio.
+const dibujoLinea = svg => /^<svg[\s>]/.test(String(svg || '').trim()) ? `<span class="lt-dibujo" aria-hidden="true">${svg}</span>` : '';
+const hitos = it => (it.events || []).filter(e => e && e.titulo);
+
+function pintarLinea(it) {
+  return `${hitos(it).length > 3 ? '<p class="lt-desliza">Desliza para ver toda la línea →</p>' : ''}<ol class="lt lt-leer">${hitos(it).map(e => `<li class="lt-hito"><span class="lt-fecha">${esc(e.fecha || '')}</span><span class="lt-punto" aria-hidden="true"></span>
+    <div class="lt-tarjeta">${dibujoLinea(e.svg)}<p class="lt-titulo">${rico(e.titulo)}</p>${e.autor ? `<p class="lt-autor">${rico(e.autor)}</p>` : ''}${e.texto ? `<p class="lt-texto">${rico(e.texto)}</p>` : ''}</div></li>`).join('')}</ol>`;
+}
+
+const fichaLinea = (e, j, mover = true) => `<${mover ? 'button type="button" draggable="true"' : 'div'} class="lt-ficha" data-ficha="${j}">${dibujoLinea(e.svg)}<span class="lt-titulo">${rico(e.titulo)}</span>${e.pista ? `<span class="lt-pista">${rico(e.pista)}</span>` : ''}</${mover ? 'button' : 'div'}>`;
+
+function colocarLinea(it) {
+  const ev = hitos(it);
+  let orden;
+  do { orden = ev.map((_, j) => j).sort(() => Math.random() - 0.5); } while (ev.length > 1 && orden.every((x, i) => x === i));
+  return `<p class="ayuda">Pulsa una tarjeta y después el hueco de su fecha (o arrástrala). Pulsa una tarjeta colocada para cambiarla de sitio.</p>
+    <ol class="lt lt-colocar">${ev.map((e, i) => `<li class="lt-hito"><span class="lt-fecha">${esc(e.fecha || '')}</span><span class="lt-punto" aria-hidden="true"></span><div class="lt-hueco" data-hueco="${i}" role="button" tabindex="0" aria-label="Hueco de ${esc(e.fecha || '')}"></div></li>`).join('')}</ol>
+    <div class="lt-bandeja" aria-label="Tarjetas por colocar">${orden.map(j => fichaLinea(ev[j], j)).join('')}</div>
+    <p class="aviso" role="alert"></p><div class="act-acciones"><button type="button" class="btn primario" data-comprobar>Comprobar</button></div>`;
+}
+
+function jugarLinea(cuerpo, it, resolver) {
+  const bandeja = cuerpo.querySelector('.lt-bandeja'), aviso = cuerpo.querySelector('.aviso');
+  const huecos = [...cuerpo.querySelectorAll('.lt-hueco')];
+  let elegida = null, arrastrada = null;
+  const elegir = f => { cuerpo.querySelectorAll('.lt-ficha.elegida').forEach(x => x.classList.remove('elegida')); elegida = f && f !== elegida ? f : null; elegida?.classList.add('elegida'); };
+  const poner = (f, destino) => {
+    if (!f || f.parentElement === destino) return;
+    const origen = f.parentElement, dentro = destino.classList.contains('lt-hueco') ? destino.querySelector('.lt-ficha') : null;
+    destino.appendChild(f);
+    if (dentro) origen.appendChild(dentro);
+    aviso.textContent = ''; avisarAltura();
+  };
+  cuerpo.querySelector('.lt-colocar').parentElement.addEventListener('click', e => {
+    const f = e.target.closest('.lt-ficha'), h = e.target.closest('.lt-hueco');
+    if (elegida && h && f !== elegida) { poner(elegida, h); elegir(null); return; }
+    if (elegida && !f && e.target.closest('.lt-bandeja')) { poner(elegida, bandeja); elegir(null); return; }
+    if (f) elegir(f);
+  });
+  huecos.forEach(h => h.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); h.click(); } }));
+  cuerpo.addEventListener('dragstart', e => { arrastrada = e.target.closest('.lt-ficha'); if (arrastrada) e.dataTransfer.setData('text/plain', arrastrada.dataset.ficha); });
+  [...huecos, bandeja].forEach(z => {
+    z.addEventListener('dragover', e => { e.preventDefault(); z.classList.add('sobre'); });
+    z.addEventListener('dragleave', () => z.classList.remove('sobre'));
+    z.addEventListener('drop', e => { e.preventDefault(); z.classList.remove('sobre'); poner(arrastrada, z); arrastrada = null; elegir(null); });
+  });
+  cuerpo.querySelector('[data-comprobar]').onclick = () => {
+    const v = huecos.map(h => { const f = h.querySelector('.lt-ficha'); return f ? Number(f.dataset.ficha) : null; });
+    if (v.some(x => x == null)) { aviso.textContent = 'Coloca todas las tarjetas antes de comprobar.'; return; }
+    resolver(v, v.every((x, i) => x === i));
+  };
+}
+
+function resultadoLinea(it, v) {
+  const ev = hitos(it), r = Array.isArray(v) ? v : [];
+  const n = ev.filter((_, i) => r[i] === i).length;
+  return `<ol class="lt lt-colocar lt-res">${ev.map((e, i) => {
+    const j = r[i], bien = j === i;
+    return `<li class="lt-hito"><span class="lt-fecha">${esc(e.fecha || '')}</span><span class="lt-punto" aria-hidden="true"></span>
+      <div class="lt-hueco ${bien ? 'ok' : 'mal'}">${ev[j] ? fichaLinea(ev[j], j, false) : ''}${bien ? '' : `<p class="lt-era">Era: ${rico(e.titulo)}</p>`}</div></li>`;
+  }).join('')}</ol>
+    <p class="tu-resp ${n === ev.length ? 'ok' : 'mal'}"><strong>${n} de ${ev.length}</strong> ${n === ev.length ? 'en su sitio. ¡Muy bien!' : 'en su sitio. Debajo de cada fallo tienes la buena.'}</p>
+    <details class="ver-sol"><summary>Ver la línea del tiempo completa</summary>${pintarLinea(it)}</details>`;
+}
 
 // ── Memory ───────────────────────────────────────────────────────
 function jugarMemory(el, pub, fin) {

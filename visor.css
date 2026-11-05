@@ -77,3 +77,64 @@ body.embed .tarjeta-act { margin-bottom: 12px; }
 }
 
 .visor-acciones { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+/* Línea del tiempo (type: timeline) */
+.lt { list-style: none; margin: 0 0 12px; padding: 4px 2px 14px; display: flex; overflow-x: auto; scroll-snap-type: x proximity; }
+.lt-hito { flex: 0 0 210px; scroll-snap-align: start; display: grid; grid-template-rows: auto 26px 1fr; padding: 0 7px; min-width: 0; }
+.lt-fecha { font: 700 1rem/1.2 var(--font-marca); text-align: center; color: var(--tinta); }
+.lt-punto { position: relative; }
+.lt-punto::before { content: ""; position: absolute; left: -7px; right: -7px; top: 50%; height: 3px; background: var(--acento); transform: translateY(-50%); }
+.lt-hito:first-child .lt-punto::before { left: 50%; }
+.lt-hito:last-child .lt-punto::before { right: 50%; }
+.lt-punto::after { content: ""; position: absolute; left: 50%; top: 50%; width: 15px; height: 15px; border-radius: 50%; background: var(--papel); border: 3px solid var(--acento); transform: translate(-50%, -50%); box-sizing: border-box; }
+.lt-tarjeta { margin-top: 4px; background: var(--papel); border: 1px solid var(--linea); border-top: 3px solid var(--acento); border-radius: 8px; padding: 10px 12px 12px; }
+.lt-dibujo { display: block; }
+.lt-dibujo svg { display: block; width: 76px; height: 76px; margin: 0 auto 6px; }
+.lt-titulo { display: block; margin: 0 0 2px; font: 600 1rem/1.25 var(--font-marca); text-align: center; color: var(--tinta); }
+.lt-autor { margin: 0 0 6px; font-size: .85rem; text-align: center; color: var(--tinta-suave); }
+.lt-texto { margin: 0; font-size: .92rem; line-height: 1.4; }
+.lt-hueco { margin-top: 4px; min-height: 148px; display: grid; place-items: center; align-content: center; gap: 4px; padding: 6px; border: 2px dashed var(--linea); border-radius: 8px; background: var(--papel); cursor: pointer; }
+.lt-hueco:empty::before { content: "Coloca aquí"; font-size: .85rem; color: var(--tinta-suave); }
+.lt-bandeja:empty { align-items: center; justify-content: center; }
+.lt-bandeja:empty::before { content: "Todas colocadas. Pulsa aquí con una tarjeta elegida para devolverla."; font-size: .85rem; color: var(--tinta-suave); }
+.lt-hueco:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.lt-hueco.sobre, .lt-bandeja.sobre { border-color: var(--acento); }
+.lt-res .lt-hueco { cursor: default; border-style: solid; }
+.lt-hueco.ok { border-color: var(--ok); background: var(--ok-fondo); }
+.lt-hueco.mal { border-color: var(--mal); background: var(--mal-fondo); }
+.lt-bandeja { display: flex; flex-wrap: wrap; gap: 8px; min-height: 56px; align-items: flex-start; padding: 10px; margin-bottom: 8px; border: 1px dashed var(--linea); border-radius: 8px; }
+.lt-ficha { display: grid; justify-items: center; align-content: start; gap: 4px; width: 156px; padding: 8px; font: inherit; color: var(--tinta); background: var(--papel); border: 1px solid var(--linea); border-radius: 8px; cursor: grab; touch-action: manipulation; }
+.lt-ficha .lt-dibujo svg { width: 60px; height: 60px; margin-bottom: 2px; }
+.lt-hueco .lt-ficha { width: 100%; border: 0; background: transparent; padding: 2px; }
+.lt-ficha.elegida { outline: 3px solid var(--acento); outline-offset: 1px; }
+.lt-pista { font-size: .8rem; line-height: 1.3; text-align: center; color: var(--tinta-suave); }
+.lt-era { margin: 2px 0 0; font-size: .82rem; text-align: center; color: var(--mal); }
+.ver-sol .lt { margin-top: 10px; }
+.lt-colocar .lt-hito { flex: 1 1 0; min-width: 96px; padding: 0 4px; grid-template-columns: minmax(0, 1fr); }
+.lt-hueco, .lt-hueco .lt-ficha { min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+.lt-era { font-size: .78rem; }
+.lt-colocar .lt-hito:first-child .lt-punto::before { left: 50%; }
+.lt-colocar .lt-punto::before { left: -4px; right: -4px; }
+.lt-colocar .lt-hueco { min-height: 124px; }
+.lt-hueco .lt-ficha .lt-pista { display: none; }
+.lt-hueco .lt-ficha .lt-dibujo svg { width: 50px; height: 50px; }
+.lt-hueco .lt-ficha .lt-titulo { font-size: .88rem; }
+.lt-desliza { margin: -6px 0 10px; font-size: .85rem; color: var(--tinta-suave); }
+@media (max-width: 640px) {
+  .lt { flex-direction: column; overflow: visible; padding-bottom: 4px; }
+  .lt-hito, .lt-colocar .lt-hito { flex: none; min-width: 0; grid-template-columns: 74px 24px minmax(0, 1fr); grid-template-rows: auto; padding: 0; }
+  .lt-fecha { text-align: right; padding: 12px 4px 0 0; font-size: .92rem; white-space: nowrap; }
+  .lt-punto::before, .lt-colocar .lt-punto::before { left: 50%; right: auto; top: 0; bottom: 0; width: 3px; height: auto; transform: translateX(-50%); }
+  .lt-hito:first-child .lt-punto::before { left: 50%; top: 20px; }
+  .lt-hito:last-child .lt-punto::before { right: auto; bottom: calc(100% - 20px); }
+  .lt-punto::after { top: 20px; }
+  .lt-tarjeta, .lt-hueco { margin: 0 0 10px; }
+  .lt-hueco { min-height: 92px; }
+  .lt-ficha { width: calc(50% - 4px); }
+  .lt-hueco .lt-ficha { grid-template-columns: 52px 1fr; justify-items: start; text-align: left; }
+  .lt-hueco .lt-ficha .lt-dibujo { grid-row: span 2; }
+  .lt-hueco .lt-ficha .lt-titulo { text-align: left; align-self: center; }
+  .lt-hueco .lt-ficha .lt-dibujo { grid-row: auto; }
+  .lt-desliza { display: none; }
+  .lt-hueco .lt-ficha .lt-dibujo svg { width: 48px; height: 48px; }
+}
