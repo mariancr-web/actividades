@@ -311,20 +311,22 @@ function resultado(it, v) {
 const veredicto = ok => ok == null ? '' : `<p class="tu-resp ${ok ? 'ok' : 'mal'}">${ok ? '¡Correcta!' : 'No es correcta: fíjate en la opción marcada como correcta.'}</p>`;
 
 // ── Línea del tiempo ─────────────────────────────────────────────
-// { type:'timeline', modo:'leer'|'colocar', events:[{ fecha, titulo, autor?, texto?, pista?, svg? }] } en orden cronológico.
-// «leer»: la línea con cada hito. «colocar»: las fechas están en la línea y el alumno pone cada tarjeta en su sitio.
+// { type:'timeline', modo:'leer'|'colocar', events:[{ fecha, titulo, autor?, texto?, pista?, svg?, tipo?, puntos? }] } en orden.
+// tipo:'contexto' = hito que no es un modelo (descubrimientos, experimentos…): otra tarjeta, con lista de puntos.
+// «leer»: la línea con todos los hitos. «colocar»: solo los que no son de contexto; el alumno pone cada tarjeta en su fecha.
 const dibujoLinea = svg => /^<svg[\s>]/.test(String(svg || '').trim()) ? `<span class="lt-dibujo" aria-hidden="true">${svg}</span>` : '';
 const hitos = it => (it.events || []).filter(e => e && e.titulo);
+const modelosLinea = it => hitos(it).filter(e => e.tipo !== 'contexto');
 
 function pintarLinea(it) {
-  return `${hitos(it).length > 3 ? '<p class="lt-desliza">Desliza para ver toda la línea →</p>' : ''}<ol class="lt lt-leer">${hitos(it).map(e => `<li class="lt-hito"><span class="lt-fecha">${esc(e.fecha || '')}</span><span class="lt-punto" aria-hidden="true"></span>
-    <div class="lt-tarjeta">${dibujoLinea(e.svg)}<p class="lt-titulo">${rico(e.titulo)}</p>${e.autor ? `<p class="lt-autor">${rico(e.autor)}</p>` : ''}${e.texto ? `<p class="lt-texto">${rico(e.texto)}</p>` : ''}</div></li>`).join('')}</ol>`;
+  return `${hitos(it).length > 3 ? '<p class="lt-desliza">Desliza para ver toda la línea →</p>' : ''}<ol class="lt lt-leer">${hitos(it).map(e => { const ctx = e.tipo === 'contexto'; return `<li class="lt-hito${ctx ? ' lt-contexto' : ''}"><span class="lt-fecha">${esc(e.fecha || '')}</span><span class="lt-punto" aria-hidden="true"></span>
+    <div class="lt-tarjeta">${dibujoLinea(e.svg)}<p class="lt-titulo">${rico(e.titulo)}</p>${e.autor ? `<p class="lt-autor">${rico(e.autor)}</p>` : ''}${e.texto ? `<p class="lt-texto">${rico(e.texto)}</p>` : ''}${Array.isArray(e.puntos) && e.puntos.length ? `<ul class="lt-puntos">${e.puntos.map(x => `<li>${rico(x).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</li>`).join('')}</ul>` : ''}</div></li>`; }).join('')}</ol>`;
 }
 
 const fichaLinea = (e, j, mover = true) => `<${mover ? 'button type="button" draggable="true"' : 'div'} class="lt-ficha" data-ficha="${j}">${dibujoLinea(e.svg)}<span class="lt-titulo">${rico(e.titulo)}</span>${e.pista ? `<span class="lt-pista">${rico(e.pista)}</span>` : ''}</${mover ? 'button' : 'div'}>`;
 
 function colocarLinea(it) {
-  const ev = hitos(it);
+  const ev = modelosLinea(it);
   let orden;
   do { orden = ev.map((_, j) => j).sort(() => Math.random() - 0.5); } while (ev.length > 1 && orden.every((x, i) => x === i));
   return `<p class="ayuda">Pulsa una tarjeta y después el hueco de su fecha (o arrástrala). Pulsa una tarjeta colocada para cambiarla de sitio.</p>
@@ -366,7 +368,7 @@ function jugarLinea(cuerpo, it, resolver) {
 }
 
 function resultadoLinea(it, v) {
-  const ev = hitos(it), r = Array.isArray(v) ? v : [];
+  const ev = modelosLinea(it), r = Array.isArray(v) ? v : [];
   const n = ev.filter((_, i) => r[i] === i).length;
   return `<ol class="lt lt-colocar lt-res">${ev.map((e, i) => {
     const j = r[i], bien = j === i;
