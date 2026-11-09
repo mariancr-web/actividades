@@ -1,0 +1,370 @@
+{
+ "app": "clase-en-directo",
+ "version": 1,
+ "tema": "2bach-quim-t05",
+ "curso": "2bach",
+ "materia": "Química",
+ "numero": 5,
+ "titulo": "Cinética química",
+ "apartados": {
+  "1": "Cinética química",
+  "1.1": "Introducción",
+  "1.2": "Objetivos de la cinética",
+  "2": "Velocidad de reacción",
+  "2.1": "Concepto de velocidad de reacción",
+  "2.2": "Expresión de la velocidad",
+  "3": "Ecuación de velocidad",
+  "3.1": "Ecuación de velocidad",
+  "3.2": "Órdenes de reacción",
+  "3.3": "Método de las velocidades iniciales",
+  "4": "Mecanismo de reacción y molecularidad",
+  "4.1": "Mecanismo de reacción",
+  "4.2": "Molecularidad",
+  "5": "Teorías de las reacciones químicas",
+  "5.1": "Introducción",
+  "5.2": "Teoría de colisiones",
+  "5.3": "Teoría del estado de transición",
+  "5.4": "Diagramas de energía",
+  "6": "Factores que influyen en la velocidad",
+  "6.1": "Temperatura",
+  "6.2": "Concentración de los reactivos",
+  "6.3": "Naturaleza y estado de los reactivos",
+  "6.4": "Catalizadores"
+ },
+ "preguntas": [
+  {
+   "id": "q2b-t05-01",
+   "tema": "2bach-quim-t05",
+   "ancla": "1.2",
+   "type": "quiz",
+   "prompt": "Una reacción tiene ΔG muy negativo. ¿Qué podemos asegurar?",
+   "options": [
+    "Que es muy rápida",
+    "Que es espontánea, pero puede ser muy lenta",
+    "Que no necesita energía de activación",
+    "Que es exotérmica"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t05-02",
+   "tema": "2bach-quim-t05",
+   "ancla": "1.2",
+   "type": "match",
+   "prompt": "Une cada pregunta sobre una reacción con la parte de la química que la estudia.",
+   "pairs": [
+    [
+     "¿Cuánto producto se obtiene?",
+     "Estequiometría"
+    ],
+    [
+     "¿Ocurre por sí sola?",
+     "Termodinámica"
+    ],
+    [
+     "¿Con qué rapidez ocurre?",
+     "Cinética"
+    ],
+    [
+     "¿Qué calor se desprende?",
+     "Termodinámica"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t05-03",
+   "tema": "2bach-quim-t05",
+   "ancla": "2.2",
+   "type": "gaps",
+   "prompt": "Completa los convenios para expresar la velocidad de reacción.",
+   "text": "La velocidad de reacción se expresa en [[mol·L⁻¹·s⁻¹|mol/L·s|mol L-1 s-1|M/s]]. Es siempre [[positiva]]: si se calcula con un reactivo se pone un signo [[menos|−|-]]. Además se divide entre el [[coeficiente estequiométrico|coeficiente]] de la sustancia.",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t05-04",
+   "tema": "2bach-quim-t05",
+   "ancla": "2.2",
+   "type": "number",
+   "prompt": "En N₂ + 3 H₂ → 2 NH₃, el N₂ desaparece a 0,010 mol·L⁻¹·s⁻¹. ¿A qué velocidad (mol·L⁻¹·s⁻¹) se forma el NH₃?",
+   "answer": 0.02,
+   "tolerance": 0.0005,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t05-05",
+   "tema": "2bach-quim-t05",
+   "ancla": "2.2",
+   "type": "quiz",
+   "prompt": "En 4 NH₃ + 5 O₂ → 4 NO + 6 H₂O, ¿qué sustancia cambia más deprisa de concentración?",
+   "options": [
+    "NH₃",
+    "O₂",
+    "NO",
+    "H₂O"
+   ],
+   "correct": 3
+  },
+  {
+   "id": "q2b-t05-06",
+   "tema": "2bach-quim-t05",
+   "ancla": "3.2",
+   "type": "match",
+   "prompt": "Une cada orden total con las unidades de la constante de velocidad.",
+   "pairs": [
+    [
+     "Orden 0",
+     "mol·L⁻¹·s⁻¹"
+    ],
+    [
+     "Orden 1",
+     "s⁻¹"
+    ],
+    [
+     "Orden 2",
+     "L·mol⁻¹·s⁻¹"
+    ],
+    [
+     "Orden 3",
+     "L²·mol⁻²·s⁻¹"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t05-07",
+   "tema": "2bach-quim-t05",
+   "ancla": "3.2",
+   "type": "number",
+   "prompt": "Si v = k·[A]²·[B] y se duplican [A] y [B], ¿por cuánto se multiplica la velocidad?",
+   "answer": 8,
+   "tolerance": 0,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t05-08",
+   "tema": "2bach-quim-t05",
+   "ancla": "3.2",
+   "type": "quiz",
+   "prompt": "¿Cuándo coinciden los órdenes parciales con los coeficientes estequiométricos?",
+   "options": [
+    "Siempre",
+    "Nunca",
+    "Solo en las reacciones elementales",
+    "Solo en las reacciones entre gases"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t05-09",
+   "tema": "2bach-quim-t05",
+   "ancla": "3.2",
+   "type": "quiz",
+   "prompt": "¿De qué depende el valor de k para una reacción dada?",
+   "options": [
+    "De las concentraciones de los reactivos",
+    "De la temperatura (y de los catalizadores)",
+    "Del volumen del recipiente",
+    "Del tiempo transcurrido"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t05-10",
+   "tema": "2bach-quim-t05",
+   "ancla": "3.3",
+   "type": "table",
+   "prompt": "v = k·[A]ᵅ·[B]ᵝ. Escribe el orden deducido de cada comparación.",
+   "table": "Al duplicar… | la velocidad… | orden\n[A] (con [B] constante) | se multiplica por 4 | [[2]]\n[B] (con [A] constante) | no cambia | [[0]]\n[C] (con el resto constante) | se duplica | [[1]]",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t05-11",
+   "tema": "2bach-quim-t05",
+   "ancla": "3.3",
+   "type": "order",
+   "prompt": "Ordena los pasos para obtener la ecuación de velocidad.",
+   "steps": [
+    "Escribir v = k·[A]ᵅ·[B]ᵝ",
+    "Elegir dos experimentos con la misma [B]",
+    "Dividir sus ecuaciones y despejar α",
+    "Repetir con dos experimentos de igual [A] para hallar β",
+    "Sustituir los datos de un experimento y calcular k"
+   ]
+  },
+  {
+   "id": "q2b-t05-12",
+   "tema": "2bach-quim-t05",
+   "ancla": "3.3",
+   "type": "number",
+   "prompt": "v = k·[B]². Con [B] = 0,010 mol/L, v = 1,8·10⁻⁴ mol·L⁻¹·s⁻¹. Calcula k (en L·mol⁻¹·s⁻¹).",
+   "answer": 1.8,
+   "tolerance": 0.01,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t05-13",
+   "tema": "2bach-quim-t05",
+   "ancla": "4.2",
+   "type": "match",
+   "prompt": "Une cada característica con el tipo de reacción.",
+   "pairs": [
+    [
+     "Una sola etapa",
+     "Elemental"
+    ],
+    [
+     "Hay intermedios de reacción",
+     "No elemental"
+    ],
+    [
+     "Los órdenes coinciden con los coeficientes",
+     "Elemental"
+    ],
+    [
+     "La velocidad la fija la etapa lenta",
+     "No elemental"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t05-14",
+   "tema": "2bach-quim-t05",
+   "ancla": "4.2",
+   "type": "gaps",
+   "prompt": "Completa.",
+   "text": "El conjunto de etapas elementales de una reacción es su [[mecanismo]]. La etapa más lenta se llama etapa [[limitante|determinante]]. La molecularidad es el número de partículas que chocan en una etapa [[elemental]]; las etapas más frecuentes son las [[bimoleculares]].",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t05-15",
+   "tema": "2bach-quim-t05",
+   "ancla": "5.4",
+   "type": "quiz",
+   "prompt": "Según la teoría de colisiones, un choque es eficaz si…",
+   "options": [
+    "Las moléculas chocan muy a menudo",
+    "Tienen energía suficiente (≥ Ea) y orientación adecuada",
+    "La reacción es exotérmica",
+    "Hay un catalizador"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t05-16",
+   "tema": "2bach-quim-t05",
+   "ancla": "5.4",
+   "type": "number",
+   "prompt": "Ea (directa) = 120 kJ/mol y ΔH = −50 kJ/mol. ¿Cuánto vale la Ea inversa (kJ/mol)?",
+   "answer": 170,
+   "tolerance": 0,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t05-17",
+   "tema": "2bach-quim-t05",
+   "ancla": "5.4",
+   "type": "quiz",
+   "prompt": "En el diagrama de energía de una reacción endotérmica…",
+   "options": [
+    "Los productos están por debajo de los reactivos",
+    "Ea es menor que ΔH",
+    "Ea es mayor que E'a",
+    "No hay complejo activado"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t05-18",
+   "tema": "2bach-quim-t05",
+   "ancla": "5.4",
+   "type": "gaps",
+   "prompt": "Completa sobre la teoría del estado de transición.",
+   "text": "Al chocar de forma eficaz, los reactivos forman un [[complejo activado]], de máxima [[energía]] y muy [[inestable]]. La energía para formarlo es la energía de [[activación]]. Cuanto mayor es, más [[lenta]] es la reacción.",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t05-19",
+   "tema": "2bach-quim-t05",
+   "ancla": "6.4",
+   "type": "match",
+   "prompt": "Une cada cambio con su explicación.",
+   "pairs": [
+    [
+     "Subir la temperatura",
+     "Más moléculas con E ≥ Ea"
+    ],
+    [
+     "Aumentar la concentración",
+     "Más choques por unidad de tiempo"
+    ],
+    [
+     "Pulverizar un sólido",
+     "Más superficie de contacto"
+    ],
+    [
+     "Añadir un catalizador",
+     "Camino con menor Ea"
+    ],
+    [
+     "Reducir el volumen (gases)",
+     "Aumenta la concentración"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t05-20",
+   "tema": "2bach-quim-t05",
+   "ancla": "6.4",
+   "type": "quiz",
+   "prompt": "Un catalizador positivo…",
+   "options": [
+    "Disminuye ΔH",
+    "Hace espontánea una reacción que no lo es",
+    "Disminuye Ea y E'a en la misma cantidad",
+    "Solo acelera la reacción directa"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t05-21",
+   "tema": "2bach-quim-t05",
+   "ancla": "6.1",
+   "type": "number",
+   "prompt": "Ea = 50 kJ/mol. ¿Por cuánto se multiplica k al pasar de 298 K a 308 K? (R = 8,31 J/(mol·K); una cifra decimal)",
+   "answer": 1.9,
+   "tolerance": 0.05,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t05-22",
+   "tema": "2bach-quim-t05",
+   "ancla": "6.3",
+   "type": "order",
+   "prompt": "Ordena de MENOR a MAYOR velocidad (mismo tipo de reacción y misma cantidad).",
+   "steps": [
+    "Reactivo sólido en un solo bloque",
+    "Reactivo sólido en trozos",
+    "Reactivo sólido en polvo",
+    "Reactivos en disolución"
+   ]
+  },
+  {
+   "id": "q2b-t05-23",
+   "tema": "2bach-quim-t05",
+   "ancla": "6.4",
+   "type": "gaps",
+   "prompt": "Completa los tipos de catálisis.",
+   "text": "Si catalizador y reactivos están en la misma fase, la catálisis es [[homogénea|homogenea]]. Si el catalizador es un sólido y los reactivos gases, es [[heterogénea|heterogenea]]. Las enzimas son proteínas que actúan según el modelo de [[llave y cerradura|llave-cerradura]]; el sustrato se une a su centro [[activo]].",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t05-24",
+   "tema": "2bach-quim-t05",
+   "ancla": "6.1",
+   "type": "link",
+   "prompt": "Simulación PhET · Reacciones y velocidad",
+   "texto": "Cambia la temperatura y la concentración y observa cuántos choques son eficaces.",
+   "boton": "Abrir la simulación",
+   "url": "https://phet.colorado.edu/es/simulations/reactions-and-rates"
+  }
+ ]
+}

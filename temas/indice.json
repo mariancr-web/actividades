@@ -30,5 +30,13 @@
     "numero": 4,
     "titulo": "Termodinámica",
     "actividades": 27
+  },
+  {
+    "tema": "2bach-quim-t05",
+    "curso": "2bach",
+    "materia": "Química",
+    "numero": 5,
+    "titulo": "Cinética química",
+    "actividades": 24
   }
 ]
