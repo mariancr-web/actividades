@@ -1,0 +1,583 @@
+{
+ "app": "clase-en-directo",
+ "version": 1,
+ "tema": "2bach-quim-t03",
+ "curso": "2bach",
+ "materia": "Química",
+ "numero": 3,
+ "titulo": "Enlace químico",
+ "apartados": {
+  "1": "El enlace químico",
+  "1.1": "¿Por qué se unen los átomos?",
+  "1.2": "La regla del octeto",
+  "1.3": "Tipos de enlace",
+  "1.4": "Enlace y estado de agregación",
+  "2": "Enlace iónico",
+  "2.1": "Formación del enlace iónico",
+  "2.2": "Cristales iónicos. Índice de coordinación",
+  "2.3": "Energía reticular",
+  "2.4": "Ciclo de Born-Haber",
+  "2.5": "Propiedades de los compuestos iónicos",
+  "3": "Enlace covalente",
+  "3.1": "Enlace covalente y sustancias covalentes",
+  "3.2": "Parámetros de enlace",
+  "3.3": "Estructuras de Lewis",
+  "3.4": "Enlaces múltiples, dativo, excepciones y resonancia",
+  "4": "Geometría, orbitales y polaridad",
+  "4.1": "Geometría molecular: la TRPECV",
+  "4.2": "Polaridad de las moléculas",
+  "4.3": "Teoría del enlace de valencia",
+  "4.4": "Hibridación de orbitales",
+  "5": "Fuerzas intermoleculares",
+  "5.1": "Fuerzas entre moléculas",
+  "5.2": "Fuerzas de Van der Waals",
+  "5.3": "Enlaces de hidrógeno",
+  "5.4": "Propiedades de las sustancias covalentes",
+  "6": "Enlace metálico",
+  "6.1": "Características del enlace metálico",
+  "6.2": "Modelos del enlace metálico",
+  "6.3": "Propiedades de los metales",
+  "6.4": "Comparación de los tipos de sustancias"
+ },
+ "preguntas": [
+  {
+   "id": "q2b-t03-01",
+   "tema": "2bach-quim-t03",
+   "ancla": "1.1",
+   "type": "gaps",
+   "prompt": "Completa sobre la formación de un enlace.",
+   "text": "Al acercarse dos átomos predominan primero las fuerzas de [[atracción]] y la energía [[disminuye|baja]]. Si se acercan demasiado, predominan las [[repulsiones|repulsión]]. El mínimo de la curva da la distancia de [[enlace]] y la energía de enlace, que es la que hay que aportar para [[romper|romperlo]] el enlace.",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t03-02",
+   "tema": "2bach-quim-t03",
+   "ancla": "1.3",
+   "type": "match",
+   "prompt": "Une cada sustancia con su tipo de enlace.",
+   "pairs": [
+    [
+     "NaCl",
+     "Iónico"
+    ],
+    [
+     "Cl₂",
+     "Covalente apolar"
+    ],
+    [
+     "HCl",
+     "Covalente polar"
+    ],
+    [
+     "Cu",
+     "Metálico"
+    ],
+    [
+     "CaO",
+     "Iónico, cargas 2+ y 2−"
+    ],
+    [
+     "Diamante",
+     "Covalente (red)"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-03",
+   "tema": "2bach-quim-t03",
+   "ancla": "1.3",
+   "type": "quiz",
+   "prompt": "Un elemento A (Z = 19) se une a otro B (Z = 35). ¿Qué tipo de enlace forman?",
+   "options": [
+    "Covalente apolar",
+    "Covalente polar",
+    "Iónico: A⁺B⁻",
+    "Metálico"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t03-04",
+   "tema": "2bach-quim-t03",
+   "ancla": "2.3",
+   "type": "order",
+   "prompt": "Ordena de MAYOR a MENOR energía reticular (en valor absoluto).",
+   "steps": [
+    "MgO",
+    "CaO",
+    "NaF",
+    "NaCl",
+    "KBr"
+   ]
+  },
+  {
+   "id": "q2b-t03-05",
+   "tema": "2bach-quim-t03",
+   "ancla": "2.3",
+   "type": "quiz",
+   "prompt": "Según la ecuación de Born-Landé, la energía reticular (en valor absoluto) es mayor cuando los iones…",
+   "options": [
+    "Son grandes y de carga pequeña",
+    "Son pequeños y de carga grande",
+    "Tienen la misma carga, sea cual sea su tamaño",
+    "Están muy separados en la red"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t03-06",
+   "tema": "2bach-quim-t03",
+   "ancla": "2.4",
+   "type": "order",
+   "prompt": "Ordena las etapas del ciclo de Born-Haber del NaCl.",
+   "steps": [
+    "Sublimación: Na(s) → Na(g)",
+    "Disociación: ½ Cl₂(g) → Cl(g)",
+    "Ionización: Na(g) → Na⁺(g) + e⁻",
+    "Afinidad: Cl(g) + e⁻ → Cl⁻(g)",
+    "Red: Na⁺(g) + Cl⁻(g) → NaCl(s)"
+   ]
+  },
+  {
+   "id": "q2b-t03-07",
+   "tema": "2bach-quim-t03",
+   "ancla": "2.4",
+   "type": "number",
+   "prompt": "Calcula la energía reticular del KCl (kJ/mol). Datos en kJ/mol: ΔH°f = −437; sublimación del K = +89; EI(K) = +419; disociación del Cl₂ = +244; AE(Cl) = −349.",
+   "answer": -718,
+   "tolerance": 2,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t03-08",
+   "tema": "2bach-quim-t03",
+   "ancla": "2.5",
+   "type": "quiz",
+   "prompt": "¿Cuándo conduce la electricidad el KBr?",
+   "options": [
+    "Siempre, porque tiene iones",
+    "Solo en estado sólido",
+    "Solo fundido o disuelto",
+    "Nunca"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t03-09",
+   "tema": "2bach-quim-t03",
+   "ancla": "2.5",
+   "type": "match",
+   "prompt": "Une cada propiedad con su explicación.",
+   "pairs": [
+    [
+     "Puntos de fusión altos",
+     "Hay que romper una red de iones"
+    ],
+    [
+     "Frágiles",
+     "Al golpear se enfrentan iones del mismo signo"
+    ],
+    [
+     "Solubles en agua",
+     "Los dipolos del agua solvatan los iones"
+    ],
+    [
+     "No conducen en sólido",
+     "Los iones están fijos en la red"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-10",
+   "tema": "2bach-quim-t03",
+   "ancla": "3.3",
+   "type": "table",
+   "prompt": "Completa la tabla.",
+   "table": "Especie | Necesarios | Disponibles | Compartidos | Solitarios\nNH₃ | [[14]] | [[8]] | [[6]] | [[2]]\nCO₂ | [[24]] | [[16]] | [[8]] | [[8]]\nHCN | [[18]] | [[10]] | [[8]] | [[2]]",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t03-11",
+   "tema": "2bach-quim-t03",
+   "ancla": "3.3",
+   "type": "number",
+   "prompt": "¿Cuántos pares de electrones solitarios hay en total en la estructura de Lewis del CCl₄?",
+   "answer": 12,
+   "tolerance": 0,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t03-12",
+   "tema": "2bach-quim-t03",
+   "ancla": "3.4",
+   "type": "match",
+   "prompt": "Une cada especie con su particularidad en la estructura de Lewis.",
+   "pairs": [
+    [
+     "BF₃",
+     "Hipovalencia"
+    ],
+    [
+     "PCl₅",
+     "Hipervalencia"
+    ],
+    [
+     "NH₄⁺",
+     "Enlace dativo"
+    ],
+    [
+     "O₃",
+     "Resonancia"
+    ],
+    [
+     "N₂",
+     "Enlace triple"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-13",
+   "tema": "2bach-quim-t03",
+   "ancla": "3.4",
+   "type": "quiz",
+   "prompt": "En el ozono, O₃, los dos enlaces O–O…",
+   "options": [
+    "Son uno simple y uno doble, de distinta longitud",
+    "Son iguales, intermedios entre simple y doble",
+    "Son dos enlaces dobles",
+    "Son dativos"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t03-14",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.1",
+   "type": "match",
+   "prompt": "Une cada molécula con su geometría.",
+   "pairs": [
+    [
+     "BeCl₂",
+     "Lineal"
+    ],
+    [
+     "BF₃",
+     "Triangular plana"
+    ],
+    [
+     "CH₄",
+     "Tetraédrica"
+    ],
+    [
+     "NH₃",
+     "Pirámide trigonal"
+    ],
+    [
+     "H₂O",
+     "Angular"
+    ],
+    [
+     "PCl₅",
+     "Bipirámide trigonal"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-15",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.1",
+   "type": "table",
+   "prompt": "Completa con el tipo de molécula (AB2E2…) y la geometría.",
+   "table": "Especie | Tipo | Geometría\nSO₂ | [[AB2E]] | [[angular]]\nPCl₃ | [[AB3E]] | [[pirámide trigonal|piramidal|pirámide triangular]]\nCO₂ | [[AB2]] | [[lineal]]\nSiF₄ | [[AB4]] | [[tetraédrica]]",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t03-16",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.1",
+   "type": "order",
+   "prompt": "Ordena de MAYOR a MENOR ángulo de enlace.",
+   "steps": [
+    "CO₂ (180°)",
+    "BF₃ (120°)",
+    "CH₄ (109,5°)",
+    "NH₃ (107°)",
+    "H₂O (104,5°)"
+   ]
+  },
+  {
+   "id": "q2b-t03-17",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.3",
+   "type": "quiz",
+   "prompt": "¿Cuántos enlaces σ y π tiene la molécula de N₂?",
+   "options": [
+    "3 σ",
+    "2 σ y 1 π",
+    "1 σ y 2 π",
+    "3 π"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t03-18",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.4",
+   "type": "match",
+   "prompt": "Une cada átomo central con su hibridación.",
+   "pairs": [
+    [
+     "C en el CO₂",
+     "sp"
+    ],
+    [
+     "B en el BF₃",
+     "sp²"
+    ],
+    [
+     "C en el CH₄",
+     "sp³"
+    ],
+    [
+     "N en el NH₃",
+     "sp³"
+    ],
+    [
+     "C en el C₂H₄",
+     "sp²"
+    ],
+    [
+     "C en el C₂H₂",
+     "sp"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-19",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.4",
+   "type": "number",
+   "prompt": "¿Cuántos enlaces σ tiene en total la molécula de eteno, CH₂=CH₂?",
+   "answer": 5,
+   "tolerance": 0,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t03-20",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.2",
+   "type": "quiz",
+   "prompt": "¿Cuál de estas moléculas es apolar aunque sus enlaces sean polares?",
+   "options": [
+    "H₂O",
+    "NH₃",
+    "CCl₄",
+    "CH₃Cl"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t03-21",
+   "tema": "2bach-quim-t03",
+   "ancla": "4.2",
+   "type": "match",
+   "prompt": "Clasifica cada molécula.",
+   "pairs": [
+    [
+     "CO₂",
+     "Apolar (lineal)"
+    ],
+    [
+     "H₂O",
+     "Polar (angular)"
+    ],
+    [
+     "BF₃",
+     "Apolar (triangular)"
+    ],
+    [
+     "NH₃",
+     "Polar (pirámide)"
+    ],
+    [
+     "CH₄",
+     "Apolar (tetraedro)"
+    ],
+    [
+     "HCl",
+     "Polar (un enlace polar)"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-22",
+   "tema": "2bach-quim-t03",
+   "ancla": "5.2",
+   "type": "match",
+   "prompt": "Une cada sustancia con las fuerzas MÁS intensas entre sus moléculas.",
+   "pairs": [
+    [
+     "CH₄",
+     "Dispersión"
+    ],
+    [
+     "HCl",
+     "Dipolo–dipolo"
+    ],
+    [
+     "H₂O",
+     "Enlaces de hidrógeno"
+    ],
+    [
+     "NaCl en agua",
+     "Ion–dipolo"
+    ],
+    [
+     "I₂",
+     "Dispersión (molécula grande)"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-23",
+   "tema": "2bach-quim-t03",
+   "ancla": "5.2",
+   "type": "order",
+   "prompt": "Ordena de MENOR a MAYOR punto de ebullición.",
+   "steps": [
+    "F₂",
+    "Cl₂",
+    "Br₂",
+    "I₂"
+   ]
+  },
+  {
+   "id": "q2b-t03-24",
+   "tema": "2bach-quim-t03",
+   "ancla": "5.3",
+   "type": "quiz",
+   "prompt": "¿Cuál de estas sustancias forma enlaces de hidrógeno entre sus moléculas?",
+   "options": [
+    "CH₄",
+    "H₂S",
+    "CH₃OH",
+    "CH₃OCH₃"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t03-25",
+   "tema": "2bach-quim-t03",
+   "ancla": "5.3",
+   "type": "order",
+   "prompt": "Ordena de MENOR a MAYOR punto de ebullición.",
+   "steps": [
+    "H₂",
+    "CH₄",
+    "HCl",
+    "H₂O",
+    "NaCl",
+    "Diamante"
+   ]
+  },
+  {
+   "id": "q2b-t03-26",
+   "tema": "2bach-quim-t03",
+   "ancla": "5.4",
+   "type": "gaps",
+   "prompt": "Completa sobre las sustancias covalentes.",
+   "text": "Las sustancias moleculares tienen puntos de fusión [[bajos]] porque solo hay que vencer fuerzas [[intermoleculares]]. Las polares se disuelven en disolventes [[polares]]. Los sólidos covalentes, como el [[diamante|cuarzo|SiO2]], son muy duros y no conducen, salvo el [[grafito]].",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t03-27",
+   "tema": "2bach-quim-t03",
+   "ancla": "6.3",
+   "type": "quiz",
+   "prompt": "En un semiconductor como el silicio…",
+   "options": [
+    "Las bandas de valencia y de conducción se solapan",
+    "La zona prohibida es pequeña y la conductividad aumenta con la temperatura",
+    "La zona prohibida es muy grande",
+    "No hay banda de conducción"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t03-28",
+   "tema": "2bach-quim-t03",
+   "ancla": "6.4",
+   "type": "match",
+   "prompt": "Une cada sustancia con cuándo conduce la electricidad.",
+   "pairs": [
+    [
+     "Fe",
+     "Sólido y fundido"
+    ],
+    [
+     "KBr",
+     "Solo fundido o disuelto"
+    ],
+    [
+     "CO₂",
+     "Nunca"
+    ],
+    [
+     "Grafito",
+     "Sólido (excepción)"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-29",
+   "tema": "2bach-quim-t03",
+   "ancla": "6.4",
+   "type": "table",
+   "prompt": "Completa con: alto/bajo y sí/no.",
+   "table": "Sustancia | Punto de fusión | ¿Conduce en sólido? | ¿Soluble en agua?\nNaCl | [[alto]] | [[no]] | [[sí|si]]\nCH₄ | [[bajo]] | [[no]] | [[no]]\nCu | [[alto]] | [[sí|si]] | [[no]]\nSiO₂ | [[alto|muy alto]] | [[no]] | [[no]]",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t03-30",
+   "tema": "2bach-quim-t03",
+   "ancla": "1.3",
+   "type": "match",
+   "prompt": "Une cada característica con su tipo de enlace.",
+   "pairs": [
+    [
+     "Transferencia de electrones",
+     "Iónico"
+    ],
+    [
+     "Pares de electrones compartidos",
+     "Covalente"
+    ],
+    [
+     "Electrones deslocalizados",
+     "Metálico"
+    ],
+    [
+     "Red de iones de signo contrario",
+     "Iónico"
+    ],
+    [
+     "Moléculas o redes de átomos",
+     "Covalente"
+    ],
+    [
+     "Red de cationes en un mar de electrones",
+     "Metálico"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t03-31",
+   "tema": "2bach-quim-t03",
+   "ancla": "6.4",
+   "type": "table",
+   "prompt": "Escribe el tipo de sustancia: iónica, molecular, red covalente o metálica.",
+   "table": "Sustancia | Tipo\nKBr | [[iónica|ionica]]\nCH₃OH | [[molecular]]\nSiO₂ | [[red covalente|covalente atómica|red]]\nZn | [[metálica|metalica]]\nCO₂ | [[molecular]]\nCaO | [[iónica|ionica]]",
+   "caseSensitive": false
+  }
+ ]
+}

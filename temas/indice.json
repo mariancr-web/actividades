@@ -14,5 +14,13 @@
     "numero": 2,
     "titulo": "Estructura atómica y sistema periódico",
     "actividades": 31
+  },
+  {
+    "tema": "2bach-quim-t03",
+    "curso": "2bach",
+    "materia": "Química",
+    "numero": 3,
+    "titulo": "Enlace químico",
+    "actividades": 31
   }
 ]
