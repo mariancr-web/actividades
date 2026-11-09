@@ -8,55 +8,57 @@
  "titulo": "Estructura atómica y sistema periódico",
  "apartados": {
   "1": "Modelos atómicos clásicos",
-  "1.1": "De la Antigüedad a Dalton",
-  "1.2": "Modelo de Thomson",
-  "1.3": "Modelo de Rutherford",
-  "1.4": "Partículas subatómicas y notación atómica",
-  "2": "Radiación electromagnética y espectros",
-  "2.1": "Ondas: magnitudes",
-  "2.2": "Espectro electromagnético",
-  "2.3": "Espectros atómicos",
-  "2.4": "Espectro del hidrógeno",
-  "3": "Orígenes de la teoría cuántica",
-  "3.1": "Hipótesis de Planck",
-  "3.2": "Efecto fotoeléctrico y fotones",
-  "4": "Modelo atómico de Bohr",
-  "4.1": "Postulados",
-  "4.2": "Espectro del hidrógeno según Bohr",
-  "4.3": "Limitaciones y correcciones",
-  "5": "Mecánica cuántica",
-  "5.1": "Dualidad onda-partícula",
-  "5.2": "Principio de incertidumbre",
-  "5.3": "Modelo de Schrödinger",
-  "6": "Números cuánticos y orbitales",
-  "6.1": "Números cuánticos",
-  "6.2": "Forma y tamaño de los orbitales",
-  "6.3": "Energía de los orbitales",
-  "7": "Configuración electrónica",
-  "7.1": "Concepto y notación",
-  "7.2": "Principios de llenado",
-  "7.3": "Iones y especies isoelectrónicas",
-  "7.4": "Estabilidad y excepciones",
-  "7.5": "Carácter magnético",
-  "8": "Sistema periódico",
+  "1.1": "De la Antigüedad hasta Dalton",
+  "1.2": "Modelo de Dalton",
+  "1.3": "Modelo de Thomson",
+  "1.4": "Modelo de Rutherford",
+  "2": "Notación atómica",
+  "2.1": "Partículas subatómicas",
+  "2.2": "Número atómico y número másico",
+  "2.3": "Isótopos",
+  "3": "Ondas electromagnéticas",
+  "3.1": "Breves nociones sobre ondas",
+  "3.2": "Espectro electromagnético",
+  "3.3": "Espectros atómicos",
+  "3.4": "Espectros del átomo de hidrógeno",
+  "4": "Orígenes de la teoría cuántica",
+  "4.1": "Hipótesis de Planck",
+  "4.2": "Efecto fotoeléctrico",
+  "4.3": "Teoría corpuscular de la luz",
+  "5": "Modelo atómico de Bohr",
+  "5.1": "Modelo atómico",
+  "5.2": "Interpretación del espectro de emisión del hidrógeno",
+  "5.3": "Limitaciones y modificaciones del modelo de Bohr",
+  "6": "Mecánica cuántica aplicada al átomo",
+  "6.1": "Dualidad onda-partícula",
+  "6.2": "Principio de incertidumbre de Heisenberg",
+  "6.3": "Modelo de Schrödinger",
+  "7": "Modelo atómico actual",
+  "7.1": "Números cuánticos",
+  "7.2": "Orbitales atómicos",
+  "8": "Tabla periódica",
   "8.1": "Historia",
   "8.2": "Tabla periódica actual",
-  "8.3": "Configuración y posición en la tabla",
-  "9": "Propiedades periódicas",
-  "9.1": "Carga nuclear efectiva",
-  "9.2": "Radio atómico",
-  "9.3": "Radio iónico",
-  "9.4": "Energía de ionización",
-  "9.5": "Afinidad electrónica",
-  "9.6": "Electronegatividad",
-  "9.7": "Carácter metálico",
-  "9.8": "Tabla resumen"
+  "9": "Configuración electrónica",
+  "9.1": "Concepto",
+  "9.2": "Principios",
+  "9.3": "Otros aspectos",
+  "9.4": "Relación entre la configuración electrónica y la tabla periódica",
+  "10": "Propiedades periódicas",
+  "10.1": "Carga nuclear efectiva",
+  "10.2": "Radio atómico",
+  "10.3": "Radio iónico",
+  "10.4": "Energía de ionización",
+  "10.5": "Afinidad electrónica",
+  "10.6": "Electronegatividad",
+  "10.7": "Carácter metálico",
+  "10.8": "Tabla resumen"
  },
  "preguntas": [
   {
    "id": "q2b-t02-01",
    "tema": "2bach-quim-t02",
-   "ancla": "1.3",
+   "ancla": "1.4",
    "type": "order",
    "prompt": "Ordena cronológicamente los modelos atómicos.",
    "steps": [
@@ -70,7 +72,7 @@
   {
    "id": "q2b-t02-02",
    "tema": "2bach-quim-t02",
-   "ancla": "1.3",
+   "ancla": "1.4",
    "type": "match",
    "prompt": "Une cada modelo con el hecho experimental que lo originó o lo puso en crisis.",
    "pairs": [
@@ -95,7 +97,7 @@
   {
    "id": "q2b-t02-03",
    "tema": "2bach-quim-t02",
-   "ancla": "1.4",
+   "ancla": "2.3",
    "type": "table",
    "prompt": "Completa la tabla.",
    "table": "Especie | Z | A | Protones | Neutrones | Electrones\n$^{23}$Na | [[11]] | 23 | [[11]] | [[12]] | [[11]]\n$^{35}$Cl$^-$ | 17 | [[35]] | [[17]] | 18 | [[18]]\n$^{40}$Ca$^{2+}$ | [[20]] | 40 | [[20]] | [[20]] | [[18]]",
@@ -104,7 +106,7 @@
   {
    "id": "q2b-t02-04",
    "tema": "2bach-quim-t02",
-   "ancla": "1.4",
+   "ancla": "2.3",
    "type": "quiz",
    "prompt": "Dos isótopos de un mismo elemento tienen…",
    "options": [
@@ -118,7 +120,7 @@
   {
    "id": "q2b-t02-05",
    "tema": "2bach-quim-t02",
-   "ancla": "1.4",
+   "ancla": "2.3",
    "type": "number",
    "prompt": "El cloro natural tiene un 75,8 % de cloro-35 (34,97 u) y un 24,2 % de cloro-37 (36,97 u). Calcula su masa atómica media (u).",
    "answer": 35.45,
@@ -128,7 +130,7 @@
   {
    "id": "q2b-t02-06",
    "tema": "2bach-quim-t02",
-   "ancla": "2.2",
+   "ancla": "3.2",
    "type": "order",
    "prompt": "Ordena las radiaciones de MENOR a MAYOR energía.",
    "steps": [
@@ -144,7 +146,7 @@
   {
    "id": "q2b-t02-07",
    "tema": "2bach-quim-t02",
-   "ancla": "2.3",
+   "ancla": "3.3",
    "type": "quiz",
    "prompt": "¿Por qué el espectro de emisión de un elemento es discontinuo (de líneas)?",
    "options": [
@@ -158,7 +160,7 @@
   {
    "id": "q2b-t02-08",
    "tema": "2bach-quim-t02",
-   "ancla": "3.2",
+   "ancla": "4.3",
    "type": "gaps",
    "prompt": "Completa sobre el efecto fotoeléctrico.",
    "text": "Un metal solo emite electrones si la frecuencia de la luz supera la frecuencia [[umbral]]. Si aumentamos la intensidad de la luz, aumenta el [[número]] de electrones emitidos, pero no su energía [[cinética]]. Einstein lo explicó suponiendo que la luz está formada por [[fotones]], de energía E = h·[[ν|nu|f]].",
@@ -167,7 +169,7 @@
   {
    "id": "q2b-t02-09",
    "tema": "2bach-quim-t02",
-   "ancla": "3.2",
+   "ancla": "4.3",
    "type": "number",
    "prompt": "Calcula la energía (en J) de un fotón de 500 nm. Escríbela en notación científica, por ejemplo 3,98e-19. Datos: h = 6,63·10⁻³⁴ J·s; c = 3,00·10⁸ m/s.",
    "answer": 3.98e-19,
@@ -177,7 +179,7 @@
   {
    "id": "q2b-t02-10",
    "tema": "2bach-quim-t02",
-   "ancla": "4.1",
+   "ancla": "5.1",
    "type": "quiz",
    "prompt": "Según Bohr, ¿cuándo emite energía un átomo?",
    "options": [
@@ -191,7 +193,7 @@
   {
    "id": "q2b-t02-11",
    "tema": "2bach-quim-t02",
-   "ancla": "4.2",
+   "ancla": "5.2",
    "type": "match",
    "prompt": "Une cada serie con el nivel en el que termina el salto y su zona del espectro.",
    "pairs": [
@@ -216,7 +218,7 @@
   {
    "id": "q2b-t02-12",
    "tema": "2bach-quim-t02",
-   "ancla": "5.2",
+   "ancla": "6.2",
    "type": "memory",
    "prompt": "Une cada científico con su aportación.",
    "pairs": [
@@ -249,7 +251,7 @@
   {
    "id": "q2b-t02-13",
    "tema": "2bach-quim-t02",
-   "ancla": "5.3",
+   "ancla": "6.3",
    "type": "quiz",
    "prompt": "¿Qué es un orbital?",
    "options": [
@@ -263,7 +265,7 @@
   {
    "id": "q2b-t02-29",
    "tema": "2bach-quim-t02",
-   "ancla": "5.3",
+   "ancla": "6.3",
    "type": "link",
    "prompt": "Padlet · Resumen de los modelos atómicos",
    "texto": "Repasa en este muro la evolución del modelo atómico, de Dalton a Schrödinger.",
@@ -273,7 +275,7 @@
   {
    "id": "q2b-t02-30",
    "tema": "2bach-quim-t02",
-   "ancla": "5.3",
+   "ancla": "6.3",
    "type": "timeline",
    "modo": "leer",
    "prompt": "La historia de los modelos atómicos",
@@ -397,7 +399,7 @@
   {
    "id": "q2b-t02-31",
    "tema": "2bach-quim-t02",
-   "ancla": "5.3",
+   "ancla": "6.3",
    "type": "timeline",
    "modo": "colocar",
    "prompt": "Coloca cada modelo atómico en su fecha.",
@@ -521,7 +523,7 @@
   {
    "id": "q2b-t02-14",
    "tema": "2bach-quim-t02",
-   "ancla": "6.1",
+   "ancla": "7.1",
    "type": "quiz",
    "prompt": "¿Cuál de estas combinaciones (n, l, m, s) es posible?",
    "options": [
@@ -535,7 +537,7 @@
   {
    "id": "q2b-t02-15",
    "tema": "2bach-quim-t02",
-   "ancla": "6.1",
+   "ancla": "7.1",
    "type": "table",
    "prompt": "Completa la tabla.",
    "table": "Orbital | n | l | Nº de orbitales | Electrones máx.\n3p | [[3]] | [[1]] | [[3]] | [[6]]\n4d | [[4]] | [[2]] | [[5]] | [[10]]\n5f | [[5]] | [[3]] | [[7]] | [[14]]",
@@ -544,7 +546,7 @@
   {
    "id": "q2b-t02-16",
    "tema": "2bach-quim-t02",
-   "ancla": "6.3",
+   "ancla": "7.2",
    "type": "order",
    "prompt": "Ordena los orbitales de MENOR a MAYOR energía (regla n + l).",
    "steps": [
@@ -559,7 +561,7 @@
   {
    "id": "q2b-t02-17",
    "tema": "2bach-quim-t02",
-   "ancla": "7.2",
+   "ancla": "9.2",
    "type": "quiz",
    "prompt": "La configuración 1s² 2s² 2pₓ² 2p_y⁰ 2p_z⁰ (estado fundamental del carbono) es incorrecta porque incumple…",
    "options": [
@@ -573,7 +575,7 @@
   {
    "id": "q2b-t02-18",
    "tema": "2bach-quim-t02",
-   "ancla": "7.2",
+   "ancla": "9.2",
    "type": "short",
    "prompt": "Escribe la configuración electrónica abreviada del hierro (Z = 26).",
    "accepted": "[Ar] 4s2 3d6; [Ar]4s2 3d6; [Ar] 4s2 3d6; [Ar]4s23d6; [Ar] 3d6 4s2; [Ar]3d64s2; [Ar] 4s² 3d⁶; [Ar] 3d⁶ 4s²"
@@ -581,7 +583,7 @@
   {
    "id": "q2b-t02-19",
    "tema": "2bach-quim-t02",
-   "ancla": "7.3",
+   "ancla": "9.3",
    "type": "match",
    "prompt": "Une cada elemento con su ion más estable.",
    "pairs": [
@@ -614,7 +616,7 @@
   {
    "id": "q2b-t02-20",
    "tema": "2bach-quim-t02",
-   "ancla": "7.4",
+   "ancla": "9.3",
    "type": "quiz",
    "prompt": "¿Cuál es la configuración real del cobre (Z = 29)?",
    "options": [
@@ -628,7 +630,7 @@
   {
    "id": "q2b-t02-21",
    "tema": "2bach-quim-t02",
-   "ancla": "7.5",
+   "ancla": "9.3",
    "type": "quiz",
    "prompt": "¿Cuál de estas especies es diamagnética?",
    "options": [
@@ -642,7 +644,7 @@
   {
    "id": "q2b-t02-22",
    "tema": "2bach-quim-t02",
-   "ancla": "8.3",
+   "ancla": "9.4",
    "type": "table",
    "prompt": "Completa la posición en la tabla periódica.",
    "table": "Elemento | Configuración de valencia | Periodo | Grupo\nK (Z = 19) | 4s¹ | [[4]] | [[1]]\nP (Z = 15) | 3s² 3p³ | [[3]] | [[15]]\nFe (Z = 26) | 4s² 3d⁶ | [[4]] | [[8]]\nBr (Z = 35) | 4s² 4p⁵ | [[4]] | [[17]]",
@@ -651,7 +653,7 @@
   {
    "id": "q2b-t02-23",
    "tema": "2bach-quim-t02",
-   "ancla": "8.3",
+   "ancla": "9.4",
    "type": "match",
    "prompt": "Une cada grupo con su configuración de valencia.",
    "pairs": [
@@ -684,7 +686,7 @@
   {
    "id": "q2b-t02-24",
    "tema": "2bach-quim-t02",
-   "ancla": "9.2",
+   "ancla": "10.2",
    "type": "order",
    "prompt": "Ordena de MAYOR a MENOR radio atómico.",
    "steps": [
@@ -698,7 +700,7 @@
   {
    "id": "q2b-t02-25",
    "tema": "2bach-quim-t02",
-   "ancla": "9.3",
+   "ancla": "10.3",
    "type": "order",
    "prompt": "Ordena de MAYOR a MENOR radio estas especies isoelectrónicas.",
    "steps": [
@@ -713,7 +715,7 @@
   {
    "id": "q2b-t02-26",
    "tema": "2bach-quim-t02",
-   "ancla": "9.4",
+   "ancla": "10.4",
    "type": "quiz",
    "prompt": "¿Qué elemento tiene la mayor primera energía de ionización?",
    "options": [
@@ -727,7 +729,7 @@
   {
    "id": "q2b-t02-27",
    "tema": "2bach-quim-t02",
-   "ancla": "9.6",
+   "ancla": "10.6",
    "type": "gaps",
    "prompt": "Completa sobre la electronegatividad.",
    "text": "La electronegatividad es la tendencia de un átomo a [[atraer]] los electrones de un enlace. En la escala de Pauling, el elemento más electronegativo es el [[flúor|F]], con un valor de [[4]], y uno de los menos electronegativos es el [[cesio|Cs]]. En la tabla periódica aumenta hacia la [[derecha]] y hacia [[arriba]].",
@@ -736,7 +738,7 @@
   {
    "id": "q2b-t02-28",
    "tema": "2bach-quim-t02",
-   "ancla": "9.8",
+   "ancla": "10.8",
    "type": "memory",
    "prompt": "Une cada propiedad con el sentido en el que AUMENTA en la tabla.",
    "pairs": [
