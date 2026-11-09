@@ -1,0 +1,423 @@
+{
+ "app": "clase-en-directo",
+ "version": 1,
+ "tema": "2bach-quim-t04",
+ "curso": "2bach",
+ "materia": "Química",
+ "numero": 4,
+ "titulo": "Termodinámica",
+ "apartados": {
+  "1": "Conceptos básicos",
+  "1.1": "Termodinámica y termoquímica",
+  "1.2": "Sistemas termodinámicos",
+  "1.3": "Variables y funciones de estado",
+  "1.4": "Tipos de procesos",
+  "1.5": "Calor",
+  "1.6": "Trabajo",
+  "1.7": "Criterio de signos",
+  "1.8": "Principio cero",
+  "2": "Primer principio",
+  "2.1": "Energía interna",
+  "2.2": "Primer principio",
+  "2.3": "Casos particulares",
+  "2.4": "Relación entre Qp y Qv",
+  "3": "Entalpía de reacción",
+  "3.1": "Calor de reacción",
+  "3.2": "Ecuaciones termoquímicas",
+  "3.3": "Estado estándar",
+  "3.4": "Entalpía de formación",
+  "3.5": "Entalpía de combustión",
+  "3.6": "Otras entalpías",
+  "4": "Ley de Hess",
+  "4.1": "Enunciado",
+  "4.2": "Cálculo con entalpías de formación",
+  "4.3": "Cálculo con energías de enlace",
+  "4.4": "Combinación de ecuaciones",
+  "4.5": "Ciclo de Born-Haber",
+  "5": "Entropía",
+  "5.1": "Procesos espontáneos",
+  "5.2": "Entropía",
+  "5.3": "Variación de entropía",
+  "5.4": "Tercer principio",
+  "5.5": "Cálculo de la entropía de reacción",
+  "5.6": "Segundo principio",
+  "6": "Energía libre y espontaneidad",
+  "6.1": "Energía libre de Gibbs",
+  "6.2": "Criterio de espontaneidad",
+  "6.3": "Influencia de la temperatura"
+ },
+ "preguntas": [
+  {
+   "id": "q2b-t04-01",
+   "tema": "2bach-quim-t04",
+   "ancla": "1.7",
+   "type": "match",
+   "prompt": "Une cada ejemplo con su tipo de sistema.",
+   "pairs": [
+    [
+     "Taza de café sin tapa",
+     "Abierto"
+    ],
+    [
+     "Lata de refresco cerrada",
+     "Cerrado"
+    ],
+    [
+     "Termo ideal bien cerrado",
+     "Aislado"
+    ],
+    [
+     "Ser vivo",
+     "Abierto"
+    ],
+    [
+     "Bomba calorimétrica",
+     "Cerrado"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t04-02",
+   "tema": "2bach-quim-t04",
+   "ancla": "1.7",
+   "type": "quiz",
+   "prompt": "¿Cuál de estas magnitudes NO es una función de estado?",
+   "options": [
+    "Energía interna, U",
+    "Entalpía, H",
+    "Calor, Q",
+    "Entropía, S"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "q2b-t04-03",
+   "tema": "2bach-quim-t04",
+   "ancla": "1.7",
+   "type": "table",
+   "prompt": "Escribe el signo (+ o −) de Q y de W para el sistema.",
+   "table": "Proceso | Q | W\nEl gas absorbe calor y se expande | [[+]] | [[−|-]]\nEl gas se comprime y se enfría | [[−|-]] | [[+]]\nUna reacción exotérmica en un recipiente rígido | [[−|-]] | [[0]]",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t04-04",
+   "tema": "2bach-quim-t04",
+   "ancla": "2.4",
+   "type": "number",
+   "prompt": "Un sistema absorbe 250 J de calor y el entorno realiza sobre él un trabajo de 100 J. ¿Cuánto vale ΔU (en J)?",
+   "answer": 350,
+   "tolerance": 0,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-05",
+   "tema": "2bach-quim-t04",
+   "ancla": "2.4",
+   "type": "gaps",
+   "prompt": "Completa sobre la relación entre los calores de reacción.",
+   "text": "A volumen constante, el calor de reacción es igual a la variación de [[energía interna|energia interna|U]]. A presión constante, es igual a la variación de [[entalpía|entalpia|H]]. Se relacionan por ΔH = ΔU + Δn·R·T, donde Δn es la variación de moles de [[gas|gases]]. Si Δn = 0, los dos calores son [[iguales]].",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t04-06",
+   "tema": "2bach-quim-t04",
+   "ancla": "2.4",
+   "type": "number",
+   "prompt": "¿Cuánto vale Δn (moles de gas) en C₃H₈(g) + 5 O₂(g) → 3 CO₂(g) + 4 H₂O(l)?",
+   "answer": -3,
+   "tolerance": 0,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-07",
+   "tema": "2bach-quim-t04",
+   "ancla": "2.4",
+   "type": "quiz",
+   "prompt": "En una combustión con Δn(gas) < 0 y ΔH < 0, ¿cuándo se desprende más calor?",
+   "options": [
+    "A volumen constante",
+    "A presión constante",
+    "Igual en los dos casos",
+    "Depende del catalizador"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t04-08",
+   "tema": "2bach-quim-t04",
+   "ancla": "3.6",
+   "type": "quiz",
+   "prompt": "¿Cuál es la reacción de formación del agua líquida?",
+   "options": [
+    "2 H₂(g) + O₂(g) → 2 H₂O(l)",
+    "H₂(g) + ½ O₂(g) → H₂O(l)",
+    "H₂(g) + O(g) → H₂O(l)",
+    "H₂O(g) → H₂O(l)"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t04-09",
+   "tema": "2bach-quim-t04",
+   "ancla": "3.6",
+   "type": "match",
+   "prompt": "Une cada sustancia con su entalpía de formación estándar.",
+   "pairs": [
+    [
+     "O₂(g)",
+     "Vale 0: elemento en estado estándar"
+    ],
+    [
+     "C(diamante)",
+     "No vale 0: no es la forma estable"
+    ],
+    [
+     "Br₂(l)",
+     "Vale 0: el bromo es líquido a 25 °C"
+    ],
+    [
+     "H₂O(l)",
+     "No vale 0: es un compuesto"
+    ],
+    [
+     "O₃(g)",
+     "No vale 0: forma no estable del oxígeno"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t04-10",
+   "tema": "2bach-quim-t04",
+   "ancla": "3.6",
+   "type": "gaps",
+   "prompt": "Completa.",
+   "text": "Si una ecuación termoquímica se multiplica por 2, su ΔH se [[multiplica por 2|duplica]]. Si se invierte, ΔH cambia de [[signo]]. Una reacción con ΔH < 0 es [[exotérmica|exotermica]] y una con ΔH > 0 es [[endotérmica|endotermica]].",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t04-11",
+   "tema": "2bach-quim-t04",
+   "ancla": "3.6",
+   "type": "number",
+   "prompt": "ΔH°c del metano = −890 kJ/mol. ¿Cuántos kJ se desprenden al quemar 32 g de CH₄ (M = 16 g/mol)? Escribe el valor positivo.",
+   "answer": 1780,
+   "tolerance": 2,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-12",
+   "tema": "2bach-quim-t04",
+   "ancla": "4.3",
+   "type": "table",
+   "prompt": "CH₄(g) + 2 O₂(g) → CO₂(g) + 2 H₂O(g). Completa el número de enlaces.",
+   "table": "Enlace | Se rompen | Se forman\nC–H | [[4]] | [[0]]\nO=O | [[2]] | [[0]]\nC=O | [[0]] | [[2]]\nO–H | [[0]] | [[4]]",
+   "caseSensitive": false
+  },
+  {
+   "id": "q2b-t04-13",
+   "tema": "2bach-quim-t04",
+   "ancla": "4.3",
+   "type": "number",
+   "prompt": "Calcula ΔH (kJ) de H₂(g) + Cl₂(g) → 2 HCl(g). E(H–H) = 436; E(Cl–Cl) = 244; E(H–Cl) = 432 kJ/mol.",
+   "answer": -184,
+   "tolerance": 1,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-14",
+   "tema": "2bach-quim-t04",
+   "ancla": "4.3",
+   "type": "quiz",
+   "prompt": "Con energías de enlace, la entalpía de reacción es…",
+   "options": [
+    "Σ E(formados) − Σ E(rotos)",
+    "Σ E(rotos) − Σ E(formados)",
+    "Σ productos − Σ reactivos",
+    "Σ E(rotos) + Σ E(formados)"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t04-15",
+   "tema": "2bach-quim-t04",
+   "ancla": "4.4",
+   "type": "order",
+   "prompt": "Ordena los pasos para aplicar la ley de Hess.",
+   "steps": [
+    "Escribir la reacción problema ajustada",
+    "Escribir las ecuaciones de los datos",
+    "Invertir o multiplicar cada ecuación (y su ΔH)",
+    "Sumar las ecuaciones y simplificar",
+    "Sumar las entalpías modificadas"
+   ]
+  },
+  {
+   "id": "q2b-t04-16",
+   "tema": "2bach-quim-t04",
+   "ancla": "4.4",
+   "type": "number",
+   "prompt": "C + O₂ → CO₂: ΔH = −393,5 kJ. CO + ½ O₂ → CO₂: ΔH = −283,0 kJ. Calcula ΔH°f del CO (kJ/mol).",
+   "answer": -110.5,
+   "tolerance": 0.2,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-17",
+   "tema": "2bach-quim-t04",
+   "ancla": "4.5",
+   "type": "order",
+   "prompt": "Ordena las etapas del ciclo.",
+   "steps": [
+    "Sublimación: K(s) → K(g)",
+    "Disociación: ½ Cl₂(g) → Cl(g)",
+    "Ionización: K(g) → K⁺(g) + e⁻",
+    "Afinidad: Cl(g) + e⁻ → Cl⁻(g)",
+    "Red: K⁺(g) + Cl⁻(g) → KCl(s)"
+   ]
+  },
+  {
+   "id": "q2b-t04-18",
+   "tema": "2bach-quim-t04",
+   "ancla": "4.5",
+   "type": "number",
+   "prompt": "Calcula ΔH°f del NaF (kJ/mol). Datos: sublimación Na = 108; EI = 496; D(F₂) = 155; AE(F) = −362; U = −923.",
+   "answer": -603.5,
+   "tolerance": 1,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-19",
+   "tema": "2bach-quim-t04",
+   "ancla": "5.3",
+   "type": "match",
+   "prompt": "Une cada proceso con el signo de ΔS.",
+   "pairs": [
+    [
+     "H₂O(l) → H₂O(g)",
+     "ΔS > 0"
+    ],
+    [
+     "N₂(g) + 3 H₂(g) → 2 NH₃(g)",
+     "ΔS < 0"
+    ],
+    [
+     "NaCl(s) → Na⁺(aq) + Cl⁻(aq)",
+     "ΔS > 0"
+    ],
+    [
+     "CO₂(g) → CO₂(s)",
+     "ΔS < 0"
+    ],
+    [
+     "CaCO₃(s) → CaO(s) + CO₂(g)",
+     "ΔS > 0 (se forma un gas)"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t04-20",
+   "tema": "2bach-quim-t04",
+   "ancla": "5.3",
+   "type": "order",
+   "prompt": "Ordena de MENOR a MAYOR entropía molar.",
+   "steps": [
+    "H₂O(s) a 0 °C",
+    "H₂O(l) a 25 °C",
+    "H₂O(l) a 80 °C",
+    "H₂O(g) a 100 °C"
+   ]
+  },
+  {
+   "id": "q2b-t04-21",
+   "tema": "2bach-quim-t04",
+   "ancla": "5.5",
+   "type": "number",
+   "prompt": "Calcula ΔS° (J/K) de N₂(g) + 3 H₂(g) → 2 NH₃(g). S° (J/(K·mol)): N₂ = 191,6; H₂ = 130,7; NH₃ = 192,5.",
+   "answer": -198.7,
+   "tolerance": 0.5,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-22",
+   "tema": "2bach-quim-t04",
+   "ancla": "5.5",
+   "type": "quiz",
+   "prompt": "Según el tercer principio, la entropía de un cristal perfecto a 0 K…",
+   "options": [
+    "Es máxima",
+    "Es cero",
+    "Es negativa",
+    "Depende de la presión"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t04-23",
+   "tema": "2bach-quim-t04",
+   "ancla": "6.3",
+   "type": "match",
+   "prompt": "Une cada combinación de signos con su espontaneidad.",
+   "pairs": [
+    [
+     "ΔH < 0, ΔS > 0",
+     "Espontánea siempre"
+    ],
+    [
+     "ΔH > 0, ΔS < 0",
+     "Nunca espontánea"
+    ],
+    [
+     "ΔH < 0, ΔS < 0",
+     "Espontánea a T baja"
+    ],
+    [
+     "ΔH > 0, ΔS > 0",
+     "Espontánea a T alta"
+    ]
+   ]
+  },
+  {
+   "id": "q2b-t04-24",
+   "tema": "2bach-quim-t04",
+   "ancla": "6.3",
+   "type": "number",
+   "prompt": "ΔH = +178 kJ y ΔS = +161 J/K (descomposición de la caliza). ¿A partir de qué temperatura (K) es espontánea?",
+   "answer": 1106,
+   "tolerance": 3,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-25",
+   "tema": "2bach-quim-t04",
+   "ancla": "6.3",
+   "type": "number",
+   "prompt": "Calcula ΔG (kJ) a 298 K si ΔH = −92,2 kJ y ΔS = −198,7 J/K.",
+   "answer": -33.0,
+   "tolerance": 0.3,
+   "unitMode": "show"
+  },
+  {
+   "id": "q2b-t04-26",
+   "tema": "2bach-quim-t04",
+   "ancla": "6.3",
+   "type": "quiz",
+   "prompt": "«Toda reacción exotérmica es espontánea».",
+   "options": [
+    "Verdadero: si ΔH < 0, ΔG < 0",
+    "Falso: si ΔS < 0, a T alta puede ser ΔG > 0",
+    "Verdadero solo a 25 °C",
+    "Falso: las exotérmicas nunca son espontáneas"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "q2b-t04-27",
+   "tema": "2bach-quim-t04",
+   "ancla": "6.3",
+   "type": "gaps",
+   "prompt": "Completa.",
+   "text": "Una reacción es espontánea a P y T constantes si ΔG es [[negativa|negativo|menor que cero]]. Si ΔG = 0, el sistema está en [[equilibrio]]. «Espontánea» no significa [[rápida|rapida]]: la velocidad la estudia la [[cinética|cinetica]].",
+   "caseSensitive": false
+  }
+ ]
+}

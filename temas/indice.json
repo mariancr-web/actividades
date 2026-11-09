@@ -22,5 +22,13 @@
     "numero": 3,
     "titulo": "Enlace químico",
     "actividades": 31
+  },
+  {
+    "tema": "2bach-quim-t04",
+    "curso": "2bach",
+    "materia": "Química",
+    "numero": 4,
+    "titulo": "Termodinámica",
+    "actividades": 27
   }
 ]
